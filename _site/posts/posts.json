@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-09-08-entrega-i-introduccin-terica-del-proyecto/",
+    "title": "Entrega I - Introduccion Teorica del Proyecto",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Ines Pereira",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2022-09-08",
+    "categories": [],
+    "contents": "\r\nDistill is a publication format for scientific and technical writing,\r\nnative to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2022-09-08T16:03:23-03:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/welcome/",
     "title": "Welcome to Clases Datos Politicos ",
     "description": "Welcome to our new blog, Clases Datos Politicos . We hope you enjoy \nreading what we have to say!",

@@ -1,7 +1,7 @@
 ---
-title: "Entrega I - Introduccion Teorica del Proyecto"
+title: "Entrega I - Impacto de los cambios en los componentes ópticos oculares en la refracción de los jóvenes"
 description: |
-  A short description of the post.
+  En este post se presenta una introducción teórica del proyecto. Esta descripción presenta una introducción al tema y las variables que se estudiarán a lo largo del proyecto.
 author:
   - name: Ines Pereira
     url: https://example.com/norajones
@@ -18,8 +18,34 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+## Introducción
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+La presencia de la miopía en la población ha aumentado significativamente en las últimas décadas y se manifiesta de forma global. Las recientes predicciones de que la mitad de la población mundial será miope en 2050 resaltan la gran preocupación por los problemas asociados a este aumento de la miopía. [1] Los valores elevados de miopía pueden provocar el desarrollo de complicaciones oculares graves, entre las que destacan el desprendimiento de retina, el glaucoma y la catarata, habiendo indicios de ceguera en el futuro. [2], [3] 
+
+## Hipótesis y variables 
+
+La progresión de la miopía se considera cuando un ojo miope corregido presenta variaciones en sus componentes ópticos oculares y enfoca los rayos de luz paralelos ante la retina. [4] Así, para estudiar el impacto de los cambios en los componentes ópticos oculares, como la longitud del ojo (CA) y el radio de curvatura (RC), en la refracción de los jóvenes, se propone como hipótesis que la graduación de una persona determinada en su componente esférica (M) cambia con CA y RC.
+
+Para esso, se considerarán como variables independientes la edad, el sexo, la longitud del ojo (CA) y el radio de curvatura (RC). La variable dependiente en estudio es la graduación de la persona en su componente esférica (M). Esta variable no se mide directamente, sino que se obtiene convirtiendo en equivalente esférico, a través de sus componentes del vector de refracción, los valores obtenidos en la refracción del objetivo monocular. Estos valores son la esfera (Esf), el cilindro (Cil) y el eje (α) de la refracción convencional y se incluyen en las siguientes ecuaciones [5]:\
+   M = Esf + Cil/2\
+   J0 = -Cil x cos (2 α)/2\
+   J45 = -Cil x sin (2 α)/2\
+
+De este modo, midiendo estos valores y aplicando las ecuaciones mencionadas, se obtienen los valores de graduación deseados para poder evaluar el impacto de los componentes ópticos en este valor. 
+
+## Conclusión
+
+Finalmente, con el estudio de estas variables se pretende evaluar los cambios en la graduación de los jóvenes con la progresión de la miopía, expresada en la variación de la longitud del ojo y el radio de curvatura.
+
+## Referencias
+
+* [1]  Clin Exp Opto. 2015 Nov;98(6):491-3. doi: 10.1111/cxo.12339. Nearly 1 billion myopes at risk of myopia-related sight-threatening conditions by 2050 - time to act now Brien A Holden, Monica Jong, Stephen Davis, David Wilson, Tim Fricke, Serge Resnikoff
+* [2] S. Hasebe, J. Jun, and S. R. Varnas, “Myopia control with positively aspherized progressive addition lenses: A 2-year, multicenter, randomized, controlled trial,” Investig. Ophthalmol. Vis. Sci., 2014, doi: 10.1167/iovs.12-11462.
+* [3]  B. A. Holden et al., “Global Prevalence of Myopia and High Myopia and Temporal Trends from 2000 through 2050,” Ophthalmology, vol. 123, no. 5. pp. 1036–1042, 2016, doi: 10.1016/j.ophtha.2016.01.006.
+* [[4] Tese de doutoramento António Queirós Pereira. Universidade do Minho. 2011.](http://repositorium.sdum.uminho.pt/handle/1822/13950)
+* [5] L. N. Thibos, W. Wheeler, and D. Horner, “Power vectors: an application of Fourier analysis to the description and statistical analysis of refractive error,” Optom Vis.Sci, vol. 74, no. 1040-5488 (Print), pp. 367–375, Jun. 1997.
+
+
+
 
 

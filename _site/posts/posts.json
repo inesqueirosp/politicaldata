@@ -1,8 +1,8 @@
 [
   {
     "path": "posts/2022-09-08-entrega-i-introduccin-terica-del-proyecto/",
-    "title": "Entrega I - Introduccion Teorica del Proyecto",
-    "description": "A short description of the post.",
+    "title": "Entrega I - Impacto de los cambios en los componentes ópticos oculares en la refracción de los jóvenes",
+    "description": "En este post se presenta una introducción teórica del proyecto. Esta descripción presenta una introducción al tema y las variables que se estudiarán a lo largo del proyecto.",
     "author": [
       {
         "name": "Ines Pereira",
@@ -11,9 +11,9 @@
     ],
     "date": "2022-09-08",
     "categories": [],
-    "contents": "\r\nDistill is a publication format for scientific and technical writing,\r\nnative to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "contents": "\r\nIntroducción\r\nLa presencia de la miopía en la población ha aumentado\r\nsignificativamente en las últimas décadas y se manifiesta de forma\r\nglobal. Las recientes predicciones de que la mitad de la población\r\nmundial será miope en 2050 resaltan la gran preocupación por los\r\nproblemas asociados a este aumento de la miopía. [1] Los valores\r\nelevados de miopía pueden provocar el desarrollo de complicaciones\r\noculares graves, entre las que destacan el desprendimiento de retina, el\r\nglaucoma y la catarata, habiendo indicios de ceguera en el futuro. [2],\r\n[3]\r\nHipótesis y variables\r\nLa progresión de la miopía se considera cuando un ojo miope corregido\r\npresenta variaciones en sus componentes ópticos oculares y enfoca los\r\nrayos de luz paralelos ante la retina. [4] Así, para estudiar el impacto\r\nde los cambios en los componentes ópticos oculares, como la longitud del\r\nojo (CA) y el radio de curvatura (RC), en la refracción de los jóvenes,\r\nse propone como hipótesis que la graduación de una persona determinada\r\nen su componente esférica (M) cambia con CA y RC.\r\nPara esso, se considerarán como variables independientes la edad, el\r\nsexo, la longitud del ojo (CA) y el radio de curvatura (RC). La variable\r\ndependiente en estudio es la graduación de la persona en su componente\r\nesférica (M). Esta variable no se mide directamente, sino que se obtiene\r\nconvirtiendo en equivalente esférico, a través de sus componentes del\r\nvector de refracción, los valores obtenidos en la refracción del\r\nobjetivo monocular. Estos valores son la esfera (Esf), el cilindro (Cil)\r\ny el eje (α) de la refracción convencional y se incluyen en las\r\nsiguientes ecuaciones [5]:\r\nM = Esf + Cil/2\r\nJ0 = -Cil x cos (2 α)/2\r\nJ45 = -Cil x sin (2 α)/2\r\nDe este modo, midiendo estos valores y aplicando las ecuaciones\r\nmencionadas, se obtienen los valores de graduación deseados para poder\r\nevaluar el impacto de los componentes ópticos en este valor.\r\nConclusión\r\nFinalmente, con el estudio de estas variables se pretende evaluar los\r\ncambios en la graduación de los jóvenes con la progresión de la miopía,\r\nexpresada en la variación de la longitud del ojo y el radio de\r\ncurvatura.\r\nReferencias\r\n[1] Clin Exp Opto. 2015 Nov;98(6):491-3. doi: 10.1111/cxo.12339.\r\nNearly 1 billion myopes at risk of myopia-related sight-threatening\r\nconditions by 2050 - time to act now Brien A Holden, Monica Jong,\r\nStephen Davis, David Wilson, Tim Fricke, Serge Resnikoff\r\n[2] S. Hasebe, J. Jun, and S. R. Varnas, “Myopia control with\r\npositively aspherized progressive addition lenses: A 2-year,\r\nmulticenter, randomized, controlled trial,” Investig. Ophthalmol. Vis.\r\nSci., 2014, doi: 10.1167/iovs.12-11462.\r\n[3] B. A. Holden et al., “Global Prevalence of Myopia and High\r\nMyopia and Temporal Trends from 2000 through 2050,” Ophthalmology,\r\nvol. 123, no. 5. pp. 1036–1042, 2016, doi:\r\n10.1016/j.ophtha.2016.01.006.\r\n[4]\r\nTese de doutoramento António Queirós Pereira. Universidade do Minho.\r\n2011.\r\n[5] L. N. Thibos, W. Wheeler, and D. Horner, “Power vectors: an\r\napplication of Fourier analysis to the description and statistical\r\nanalysis of refractive error,” Optom Vis.Sci, vol. 74, no. 1040-5488\r\n(Print), pp. 367–375, Jun. 1997.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2022-09-08T16:03:23-03:00",
+    "last_modified": "2022-09-08T17:28:38-03:00",
     "input_file": {}
   },
   {

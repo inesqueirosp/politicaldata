@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-09-23-tarea-clase-01-septiembre/",
+    "title": "Tarea Clase 01 septiembre",
+    "description": "Tarea de la clase del día 01 de septiembre del curso ICP5006-1 sobre gráficos exploratorios.",
+    "author": [
+      {
+        "name": "Ines Pereira",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2022-09-23",
+    "categories": [],
+    "contents": "\r\nBase de datos\r\n\r\n\r\n#open database\r\nvdem <- readRDS(\"vdem.rds\")\r\nlibrary(tidyverse)\r\n#install.packages('sjmisc')\r\nlibrary(sjmisc)\r\n#install.packages('kableExtra')\r\nlibrary(kableExtra)\r\n\r\n#subset\r\nvdem_subset <- vdem %>% \r\n  select(country_name, v2x_partipdem, \r\n         v2x_cspart, v2elmulpar, v2psprlnks, e_peedgini, \r\n         e_regionpol, e_gdppc, e_pop) %>% \r\n  group_by(country_name) %>% \r\n  summarise_all(function(x)  mean(x, na.rm = T))\r\n\r\n\r\nHistograma\r\n\r\n\r\n#dependent variable\r\nvdem_subset %>% \r\n  ggplot(aes(x = v2x_cspart, na.rm = T)) +\r\n  geom_histogram(binwidth = 0.05) +\r\n  labs(x = \"Participación de las personas en OSC [0-1] \", y = \"Frecuencia\",\r\n       title = \"Distribución de la variable dependiente\",\r\n       caption = \"Fuente: Varieties of Democracy\")\r\n\r\n\r\n#independent variable\r\nvdem_subset %>% \r\n  ggplot(aes(x = e_peedgini, na.rm = T)) +\r\n  geom_histogram(binwidth = 2.5) +\r\n  labs(x = \"Coeficiente de Gini de desigualdad educacional\", y = \"Frecuencia\",\r\n       title = \"Distribución de la variable independiente\",\r\n       caption = \"Fuente: Varieties of Democracy\")\r\n\r\n\r\n\r\nGráfico de barras\r\n\r\n\r\nvdem_subset %>% \r\n  ggplot(aes(x=e_regionpol)) +\r\n  geom_bar(color=\"blue\", fill=\"white\") +\r\n  labs(x = \"Clasificación regional\", y = \"Frecuencia\",\r\n       title = \"Clasificación regional de los países basados en su posición política-geográfica\",\r\n       caption = \"Fuente: Varieties of Democracy\")\r\n\r\n\r\n\r\nBoxplot\r\n\r\n\r\nvdem_subset %>% \r\n  ggplot(aes(x=factor(e_regionpol), y = v2psprlnks  ))+\r\n  geom_boxplot( color=\"cadetblue\", fill=\"steelblue\", alpha = 0.5) +\r\n  theme_minimal() +\r\n  labs(x = \"Clasificacion Regional\", y = \"Forma de vínculo\"\",\r\n       title = \"Distribuicion de la forma de vínculo dos partidos y votantes por Clasificacion Regional\"\",\r\n       caption = \"Fuente: Varieties of Democracy\")\r\n\r\n\r\n\r\nScatterplot\r\n\r\n\r\nvdem_subset %>% \r\nggplot(aes(x=e_peedgini, y=v2x_cspart)) +\r\n  geom_point(color=\"cadetblue\", size=2, shape=23) + \r\n  labs(x = \"Inequidad educacional\", y = \"Participación de las personas en OSC \",\r\n       title = \"Relacion entre la Inequidad educacional y la Participación de las personas en OSC\",\r\n       caption = \"Fuente: Varieties of Democracy\")\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/2022-09-23-tarea-clase-01-septiembre/tarea-clase-01-septiembre_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2022-09-23T17:21:48-03:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2022-09-08-entrega-i-introduccin-terica-del-proyecto/",
     "title": "Entrega I - Impacto de los cambios en los componentes ópticos oculares en la refracción de los jóvenes",
     "description": "En este post se presenta una introducción teórica del proyecto. Esta descripción presenta una introducción al tema y las variables que se estudiarán a lo largo del proyecto.",

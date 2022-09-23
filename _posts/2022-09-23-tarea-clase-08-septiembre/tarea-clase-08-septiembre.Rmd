@@ -1,0 +1,75 @@
+---
+title: "Tarea Clase 08 septiembre"
+description: |
+  Tarea de la clase del día 08 de septiembre del curso ICP5006-1 sobre regresión lineal.
+author:
+  - name: Ines Pereira
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: 2022-09-23
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+## Hipótesis
+
+La inequidad educacional (Coeficiente Gini de Desigualdad Educativa) influye en la participación de partidos políticos en la competencia electoral.\
+
+Variable dependiente: participación de partidos políticos en la competencia electoral\
+Variable independiente: inequidad educacional
+
+### Base de datos
+
+```{r}
+#open database
+vdem <- readRDS("vdem.rds")
+library(tidyverse)
+#install.packages('sjmisc')
+library(sjmisc)
+#install.packages('kableExtra')
+library(kableExtra)
+
+#subset
+vdem_subset <- vdem %>% 
+  select(country_name, v2x_partipdem, 
+         v2x_cspart, v2elmulpar, v2psprlnks, e_peedgini, 
+         e_regionpol, e_gdppc, e_pop) %>% 
+  group_by(country_name) %>% 
+  summarise_all(function(x)  mean(x, na.rm = T))
+```
+
+### Modelo lineal simple
+
+```{r}
+modelo_simple <- lm(v2elmulpar ~ 1 + e_peedgini, data = vdem_subset)
+class(modelo_simple)
+summary(modelo_simple)
+#install.packages("texreg")
+library(texreg)
+screenreg(modelo_simple)
+```
+
+### Modelo lineal multiple
+
+```{r}
+modelo_multiple <- lm(v2elmulpar ~ e_peedgini+e_regionpol , data = vdem_subset)
+class(modelo_multiple)
+summary(modelo_multiple)
+library(texreg)
+screenreg(modelo_multiple)
+```
+
+### Evaluación de supuestos
+
+Linealidad de los parámetros
+
+```{r}
+ggplot(mapping = aes(x = modelo_simple$fitted.values, y = modelo_simple$residuals)) +
+  labs(x = "Valores predichos", y = "Residuos") +
+  geom_point() +
+  geom_hline(mapping = aes(yintercept = 0), color = "red")
+```
+
+

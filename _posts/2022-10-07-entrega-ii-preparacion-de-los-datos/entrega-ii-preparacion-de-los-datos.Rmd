@@ -1,0 +1,74 @@
+---
+title: "Entrega II - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes"
+description: |
+   En este post se presenta la primera fase del análisis de datos - preparación de datos - en la que se analizan las características de las variables y se procesa el tratamiento de los datos. Además, se realiza un análisis gráfico de los datos. [WIP]
+author:
+  - name: Ines Pereira
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: 2022-10-07
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+## Base de datos
+```{r}
+library(xlsx)
+data <- read.xlsx("base_datos.xlsx",1)
+data <- data.frame(data)
+str(data)
+```
+## Características de las variables
+```{r}
+data$eje=as.numeric(data$eje)
+data$orient_astigm=as.numeric(data$orient_astigm)
+str(data)
+summary(data)
+##numerical variables with missing values: J0, J45, cil, eje, orient_astigm
+```
+## Outliers & Boxplots
+```{r}
+#see outliers of non-binary variables
+##variable edad
+boxplot(data$edad, col="lightblue", main="Edad Boxplot",
+        ylab="Edad")
+boxplot.stats(data$edad)
+##Variable M
+boxplot(data$M, col="lightgreen", main="M Boxplot",
+        ylab="M")
+boxplot.stats(data$M)
+##Variable J0
+boxplot(data$J0, col="lightpink", main="J0 Boxplot",
+        ylab="J0")
+boxplot.stats(data$J0)
+##Variable J45
+boxplot(data$J45, col="violet", main="J45 Boxplot",
+        ylab="J45")
+boxplot.stats(data$J45)
+##Variable esf
+boxplot(data$esf, col="orange", main="Esfera Boxplot",
+        ylab="Esfera")
+boxplot.stats(data$esf)
+##Variable cil
+boxplot(data$cil, col="lightyellow", main="Cilindro Boxplot",
+        ylab="Cilindro")
+boxplot.stats(data$cil)
+##Variable eje
+boxplot(data$eje, col="#3391FF", main="Eje Boxplot",
+        ylab="Eje")
+boxplot.stats(data$eje)
+##Variable CA
+boxplot(data$CA, col="#CBF4A9", main="Longitud del Ojo Boxplot",
+        ylab="CA")
+boxplot.stats(data$CA)
+##Variable RC
+boxplot(data$RC, col="#B7F6DA", main="Radio de Curvatura Boxplot",
+        ylab="RC")
+boxplot.stats(data$RC)
+##Variable CA_RC_1
+boxplot(data$CA_RC_1, col="#F6B7B7", main="CA_RC_1 Boxplot",
+        ylab="CA_RC_1")
+boxplot.stats(data$CA_RC_1)
+```

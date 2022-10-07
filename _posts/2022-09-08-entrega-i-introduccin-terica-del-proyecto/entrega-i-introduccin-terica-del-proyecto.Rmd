@@ -24,29 +24,47 @@ La presencia de la miopía en la población ha aumentado significativamente en l
 
 ## Hipótesis y variables 
 
-La progresión de la miopía se considera cuando un ojo miope corregido presenta variaciones en sus componentes ópticos oculares y enfoca los rayos de luz paralelos ante la retina. [4] Así, para estudiar el impacto de los cambios en los componentes ópticos oculares, como la longitud del ojo (CA) y el radio de curvatura (RC), en la refracción de los jóvenes, se propone como hipótesis que <u>la graduación de una persona determinada en su componente esférica (M) cambia con la longitud del ojo (CA) y el radio de curvatura (RC)</u>.
+La progresión de la miopía se considera cuando un ojo miope corregido presenta variaciones en sus componentes ópticos oculares y enfoca los rayos de luz paralelos ante la retina. [4] Así, para estudiar el impacto de los cambios en los componentes ópticos oculares, como la longitud axial del ojo (CA) y el radio de curvatura (RC), en la refracción de los jóvenes, se propone como hipótesis que <u>la graduación de una persona determinada en su componente esférica (M) cambia con la longitud axial del ojo (CA) y el radio de curvatura (RC)</u>.
 
-Para evaluar esta hipótesis, se recurre a una base de datos elaborada en un estudio realizado por el Departamento de Física de la Escuela de Ciencias de la Universidad do Minho como parte de un programa …. En esta base de datos se encuentran las siguientes variables:
+Para evaluar esta hipótesis, se recurre a una base de datos formada por las mediciones ópticas realizadas en una escuela, en Portugal. En esta base de datos se encuentran las siguientes variables:
 
-* **clase**: clase de los alumnos en estudio (variable cualitativa)\
-* **nombre**: nombre de los alumnos en estudio (variable cualitativa)\
-* **sexo**: sexo de los alumnos en estudio (variable binaria: 1 - masculino, 0 - femenino)\
-* **ametropia**:  (variable cualitativa ordinal: 3 niveles)\
-* **edad**: edad de los alumnos en estudio (variable cuantitativa discreta)\
-* **grupo_etario**: grupo de edad de los alumnos en estudio (variable cualitativa ordinal: 3 niveles)\
-* **M**: graduación de los alumnos en estudio determinada en su componente esférica (variable cuantitativa continua)\
-* **J0** (variable cuantitativa continua)\
-* **J45** (variable cuantitativa continua)\
-* **esf**: valor de la esfera de la refracción convencional (variable cuantitativa continua)\
-* **cil**: valor del cilindro de la refracción convencional (variable cuantitativa continua)\
-* **eje**: valor del eje de la refracción convencional (variable cuantitativa continua)\
-* **orient_astigm**: orientación del astigmatismo (variable cualitativa ordinal: 3 niveles)\
-* **esfera**:\
-* **CA**: longitud del ojo (variable cuantitativa continua)\
-* **R_medio_1**: radio de curvatura (variable cuantitativa continua)\
-* **CA_RC_1**:\
+* **clase**: clase de los alumnos en estudio\
+  + variable cualitativa\
+* **nombre**: nombre de los alumnos en estudio\
+  + variable cualitativa\
+* **sexo**: sexo de los alumnos en estudio\
+  + variable binaria\
+    - 1: masculino, 0: femenino\
+* **ametropia**:  defecto de refracción\
+  + variable cualitativa ordinal: 3 niveles\
+    - -1:miopia, 0: emetropia, 1:hipermetropia\
+* **edad**: edad de los alumnos en estudio\
+  + variable cuantitativa discreta\
+* **grupo_etario**: grupo de edad de los alumnos en estudio\
+  + variable cualitativa ordinal: 3 niveles\
+* **M**: graduación de los alumnos en estudio determinada en su componente esférica\
+  + variable cuantitativa continua\
+* **J0**: componente vectorial horizontal del astigmatismo\
+  + variable cuantitativa continua\
+* **J45**:componente vectorial oblicuo del astigmatismo\
+  + variable cuantitativa continua\
+* **esf**: valor de la esfera de la refracción convencional\
+  + variable cuantitativa continua\
+* **cil**: valor del cilindro de la refracción convencional\
+  + variable cuantitativa continua\
+* **eje**: valor del eje de la refracción convencional\
+  + variable cuantitativa continua\
+* **orient_astigm**: orientación del astigmatismo\
+  + variable cualitativa ordinal: 3 niveles\
+* **CA**: longitud axial del ojo\
+  + variable cuantitativa continua\
+* **RC**: radio de curvatura\
+  + variable cuantitativa continua\
+* **CA_RC**: predictor del defecto de refracción\
+  + variable cuantitativa continua\
+    - <3: hipermetrope, 3: emetrope, >3:miope\
 
-En esto proyecto y con el objetivo de evaluar el impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes,  se considerarán como <u>variables independientes la edad, el sexo, la longitud del ojo (CA) y el radio de curvatura (RC)</u>. La <u>variable dependiente</u> en estudio es <u>la graduación de la persona en su componente esférica (M)</u>. Esta variable no se mide directamente, sino que se obtiene convirtiendo en equivalente esférico, a través de sus componentes del vector de refracción, los valores obtenidos en la refracción del objetivo monocular. Estos valores son la esfera (Esf), el cilindro (Cil) y el eje (α) de la refracción convencional y se incluyen en las siguientes ecuaciones [5]:\
+En esto proyecto y con el objetivo de evaluar el impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes,  se considerarán como <u>variables independientes la longitud axial del ojo (CA) y el radio de curvatura (RC)</u>. La <u>variable dependiente</u> en estudio es <u>la graduación de la persona en su componente esférica (M)</u>. Esta variable no se mide directamente, sino que se obtiene convirtiendo en equivalente esférico, a través de sus componentes del vector de refracción, los valores obtenidos en la refracción del objetivo monocular. Estos valores son la esfera (Esf), el cilindro (Cil) y el eje (α) de la refracción convencional y se incluyen en las siguientes ecuaciones [5]:\
 
    M = Esf + Cil/2\
    J0 = -Cil x cos (2 α)/2\

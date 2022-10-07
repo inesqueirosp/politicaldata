@@ -2152,75 +2152,142 @@ glaucoma y la catarata, habiendo indicios de ceguera en el futuro. [2],
 <p>La progresión de la miopía se considera cuando un ojo miope corregido
 presenta variaciones en sus componentes ópticos oculares y enfoca los
 rayos de luz paralelos ante la retina. [4] Así, para estudiar el impacto
-de los cambios en los componentes ópticos oculares, como la longitud del
-ojo (CA) y el radio de curvatura (RC), en la refracción de los jóvenes,
-se propone como hipótesis que <u>la graduación de una persona
-determinada en su componente esférica (M) cambia con la longitud del ojo
-(CA) y el radio de curvatura (RC)</u>.</p>
-<p>Para evaluar esta hipótesis, se recurre a una base de datos elaborada
-en un estudio realizado por el Departamento de Física de la Escuela de
-Ciencias de la Universidad do Minho como parte de un programa …. En esta
-base de datos se encuentran las siguientes variables:</p>
+de los cambios en los componentes ópticos oculares, como la longitud
+axial del ojo (CA) y el radio de curvatura (RC), en la refracción de los
+jóvenes, se propone como hipótesis que <u>la graduación de una persona
+determinada en su componente esférica (M) cambia con la longitud axial
+del ojo (CA) y el radio de curvatura (RC)</u>.</p>
+<p>Para evaluar esta hipótesis, se recurre a una base de datos formada
+por las mediciones ópticas realizadas en una escuela, en Portugal. En
+esta base de datos se encuentran las siguientes variables:</p>
 <ul>
-<li><strong>clase</strong>: clase de los alumnos en estudio (variable
-cualitativa)<br />
+<li><strong>clase</strong>: clase de los alumnos en estudio<br />
+
+<ul>
+<li>variable cualitativa<br />
 </li>
-<li><strong>nombre</strong>: nombre de los alumnos en estudio (variable
-cualitativa)<br />
+</ul></li>
+<li><strong>nombre</strong>: nombre de los alumnos en estudio<br />
+
+<ul>
+<li>variable cualitativa<br />
 </li>
-<li><strong>sexo</strong>: sexo de los alumnos en estudio (variable
-binaria: 1 - masculino, 0 - femenino)<br />
+</ul></li>
+<li><strong>sexo</strong>: sexo de los alumnos en estudio<br />
+
+<ul>
+<li>variable binaria<br />
+
+<ul>
+<li>1: masculino, 0: femenino<br />
 </li>
-<li><strong>ametropia</strong>: (variable cualitativa ordinal: 3
-niveles)<br />
+</ul></li>
+</ul></li>
+<li><strong>ametropia</strong>: defecto de refracción<br />
+
+<ul>
+<li>variable cualitativa ordinal: 3 niveles<br />
+
+<ul>
+<li>-1:miopia, 0: emetropia, 1:hipermetropia<br />
 </li>
-<li><strong>edad</strong>: edad de los alumnos en estudio (variable
-cuantitativa discreta)<br />
+</ul></li>
+</ul></li>
+<li><strong>edad</strong>: edad de los alumnos en estudio<br />
+
+<ul>
+<li>variable cuantitativa discreta<br />
 </li>
+</ul></li>
 <li><strong>grupo_etario</strong>: grupo de edad de los alumnos en
-estudio (variable cualitativa ordinal: 3 niveles)<br />
+estudio<br />
+
+<ul>
+<li>variable cualitativa ordinal: 3 niveles<br />
 </li>
+</ul></li>
 <li><strong>M</strong>: graduación de los alumnos en estudio determinada
-en su componente esférica (variable cuantitativa continua)<br />
+en su componente esférica<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
 </li>
-<li><strong>J0</strong> (variable cuantitativa continua)<br />
+</ul></li>
+<li><strong>J0</strong>: componente vectorial horizontal del
+astigmatismo<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
 </li>
-<li><strong>J45</strong> (variable cuantitativa continua)<br />
+</ul></li>
+<li><strong>J45</strong>:componente vectorial oblicuo del
+astigmatismo<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
 </li>
+</ul></li>
 <li><strong>esf</strong>: valor de la esfera de la refracción
-convencional (variable cuantitativa continua)<br />
+convencional<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
 </li>
+</ul></li>
 <li><strong>cil</strong>: valor del cilindro de la refracción
-convencional (variable cuantitativa continua)<br />
+convencional<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
 </li>
-<li><strong>eje</strong>: valor del eje de la refracción convencional
-(variable cuantitativa continua)<br />
+</ul></li>
+<li><strong>eje</strong>: valor del eje de la refracción
+convencional<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
 </li>
-<li><strong>orient_astigm</strong>: orientación del astigmatismo
-(variable cualitativa ordinal: 3 niveles)<br />
+</ul></li>
+<li><strong>orient_astigm</strong>: orientación del astigmatismo<br />
+
+<ul>
+<li>variable cualitativa ordinal: 3 niveles<br />
 </li>
-<li><strong>esfera</strong>:<br />
+</ul></li>
+<li><strong>CA</strong>: longitud axial del ojo<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
 </li>
-<li><strong>CA</strong>: longitud del ojo (variable cuantitativa
-continua)<br />
+</ul></li>
+<li><strong>RC</strong>: radio de curvatura<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
 </li>
-<li><strong>R_medio_1</strong>: radio de curvatura (variable
-cuantitativa continua)<br />
+</ul></li>
+<li><strong>CA_RC</strong>: predictor del defecto de refracción<br />
+
+<ul>
+<li>variable cuantitativa continua<br />
+
+<ul>
+<li>&lt;3: hipermetrope, 3: emetrope, &gt;3:miope<br />
 </li>
-<li><strong>CA_RC_1</strong>:<br />
-</li>
+</ul></li>
+</ul></li>
 </ul>
 <p>En esto proyecto y con el objetivo de evaluar el impacto de los
 cambios de los componentes ópticos oculares en la refracción de los
-jóvenes, se considerarán como <u>variables independientes la edad, el
-sexo, la longitud del ojo (CA) y el radio de curvatura (RC)</u>. La
-<u>variable dependiente</u> en estudio es <u>la graduación de la persona
-en su componente esférica (M)</u>. Esta variable no se mide
-directamente, sino que se obtiene convirtiendo en equivalente esférico,
-a través de sus componentes del vector de refracción, los valores
-obtenidos en la refracción del objetivo monocular. Estos valores son la
-esfera (Esf), el cilindro (Cil) y el eje (α) de la refracción
-convencional y se incluyen en las siguientes ecuaciones [5]:<br />
+jóvenes, se considerarán como <u>variables independientes la longitud
+axial del ojo (CA) y el radio de curvatura (RC)</u>. La <u>variable
+dependiente</u> en estudio es <u>la graduación de la persona en su
+componente esférica (M)</u>. Esta variable no se mide directamente, sino
+que se obtiene convirtiendo en equivalente esférico, a través de sus
+componentes del vector de refracción, los valores obtenidos en la
+refracción del objetivo monocular. Estos valores son la esfera (Esf), el
+cilindro (Cil) y el eje (α) de la refracción convencional y se incluyen
+en las siguientes ecuaciones [5]:<br />
 </p>
 <p>M = Esf + Cil/2<br />
 J0 = -Cil x cos (2 α)/2<br />

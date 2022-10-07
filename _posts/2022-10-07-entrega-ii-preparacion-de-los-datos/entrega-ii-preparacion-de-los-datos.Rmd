@@ -36,15 +36,15 @@ boxplot(data$edad, col="lightblue", main="Edad Boxplot",
         ylab="Edad")
 boxplot.stats(data$edad)
 ##Variable M
-boxplot(data$M, col="lightgreen", main="M Boxplot",
+boxplot(data$M, col="lightgreen", main="Graduación Componente Esférica Boxplot",
         ylab="M")
 boxplot.stats(data$M)
 ##Variable J0
-boxplot(data$J0, col="lightpink", main="J0 Boxplot",
+boxplot(data$J0, col="lightpink", main="Componente Vectorial Horizontal Boxplot",
         ylab="J0")
 boxplot.stats(data$J0)
 ##Variable J45
-boxplot(data$J45, col="violet", main="J45 Boxplot",
+boxplot(data$J45, col="violet", main="Componente Vectorial Oblicuo Boxplot",
         ylab="J45")
 boxplot.stats(data$J45)
 ##Variable esf
@@ -60,15 +60,15 @@ boxplot(data$eje, col="#3391FF", main="Eje Boxplot",
         ylab="Eje")
 boxplot.stats(data$eje)
 ##Variable CA
-boxplot(data$CA, col="#CBF4A9", main="Longitud del Ojo Boxplot",
+boxplot(data$CA, col="#CBF4A9", main="Longitud Axial del Ojo Boxplot",
         ylab="CA")
 boxplot.stats(data$CA)
 ##Variable RC
 boxplot(data$RC, col="#B7F6DA", main="Radio de Curvatura Boxplot",
         ylab="RC")
 boxplot.stats(data$RC)
-##Variable CA_RC_1
-boxplot(data$CA_RC_1, col="#F6B7B7", main="CA_RC_1 Boxplot",
-        ylab="CA_RC_1")
-boxplot.stats(data$CA_RC_1)
+##Variable CA_RC
+boxplot(data$CA_RC, col="#F6B7B7", main="Predictor Defecto Refractivo Boxplot",
+        ylab="CA_RC")
+boxplot.stats(data$CA_RC)
 ```

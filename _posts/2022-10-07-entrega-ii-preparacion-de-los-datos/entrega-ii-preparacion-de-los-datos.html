@@ -1526,7 +1526,7 @@ class="uri">https://example.com/spacelysprokets</a>
 <span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>&#39;data.frame&#39;:   1150 obs. of  18 variables:
+<pre><code>&#39;data.frame&#39;:   1150 obs. of  17 variables:
  $ id           : num  1 2 3 4 5 6 7 8 9 10 ...
  $ clase        : chr  &quot;7ºC&quot; &quot;7ºC&quot; &quot;7ºC&quot; &quot;7ºC&quot; ...
  $ nombre       : chr  &quot;João Pedro&quot; &quot;Francisco F.&quot; &quot;Francisco S.&quot; &quot;José Pereira&quot; ...
@@ -1541,10 +1541,9 @@ class="uri">https://example.com/spacelysprokets</a>
  $ cil          : num  -0.24 -0.42 -0.83 -0.75 -0.17 -0.08 -0.92 -0.58 -0.49 -0.1 ...
  $ eje          : chr  &quot;151.35&quot; &quot;20.8&quot; &quot;167.9&quot; &quot;63.67&quot; ...
  $ orient_astigm: chr  &quot;2&quot; &quot;2&quot; &quot;1&quot; &quot;2&quot; ...
- $ esfera       : num  1 1 2 1 1 2 2 1 1 1 ...
  $ CA           : num  24.5 22.4 23.2 22.9 23.2 ...
  $ RC           : num  8.21 7.52 8.06 7.72 7.97 7.58 7.93 7.41 8.22 7.42 ...
- $ CA_RC_1      : num  2.99 2.99 2.88 2.96 2.92 ...</code></pre>
+ $ CA_RC        : num  2.99 2.99 2.88 2.96 2.92 ...</code></pre>
 </div>
 <h2 id="características-de-las-variables">Características de las
 variables</h2>
@@ -1554,7 +1553,7 @@ variables</h2>
 <span><span class='va'>data</span><span class='op'>$</span><span class='va'>orient_astigm</span><span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>orient_astigm</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>&#39;data.frame&#39;:   1150 obs. of  18 variables:
+<pre><code>&#39;data.frame&#39;:   1150 obs. of  17 variables:
  $ id           : num  1 2 3 4 5 6 7 8 9 10 ...
  $ clase        : chr  &quot;7ºC&quot; &quot;7ºC&quot; &quot;7ºC&quot; &quot;7ºC&quot; ...
  $ nombre       : chr  &quot;João Pedro&quot; &quot;Francisco F.&quot; &quot;Francisco S.&quot; &quot;José Pereira&quot; ...
@@ -1569,10 +1568,9 @@ variables</h2>
  $ cil          : num  -0.24 -0.42 -0.83 -0.75 -0.17 -0.08 -0.92 -0.58 -0.49 -0.1 ...
  $ eje          : num  151.3 20.8 167.9 63.7 154.5 ...
  $ orient_astigm: num  2 2 1 2 2 2 1 1 2 1 ...
- $ esfera       : num  1 1 2 1 1 2 2 1 1 1 ...
  $ CA           : num  24.5 22.4 23.2 22.9 23.2 ...
  $ RC           : num  8.21 7.52 8.06 7.72 7.97 7.58 7.93 7.41 8.22 7.42 ...
- $ CA_RC_1      : num  2.99 2.99 2.88 2.96 2.92 ...</code></pre>
+ $ CA_RC        : num  2.99 2.99 2.88 2.96 2.92 ...</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span></code></pre>
 </div>
@@ -1587,10 +1585,10 @@ variables</h2>
       sexo          ametropia            edad        grupo_etario  
  Min.   :0.0000   Min.   :-1.0000   Min.   : 5.00   Min.   :1.000  
  1st Qu.:0.0000   1st Qu.:-1.0000   1st Qu.:13.00   1st Qu.:2.000  
- Median :1.0000   Median : 0.0000   Median :18.07   Median :3.000  
- Mean   :0.5183   Mean   :-0.1148   Mean   :16.33   Mean   :2.505  
- 3rd Qu.:1.0000   3rd Qu.: 0.0000   3rd Qu.:18.57   3rd Qu.:3.000  
- Max.   :1.0000   Max.   : 1.0000   Max.   :38.09   Max.   :3.000  
+ Median :1.0000   Median : 0.0000   Median :18.00   Median :3.000  
+ Mean   :0.5183   Mean   :-0.1148   Mean   :16.33   Mean   :2.506  
+ 3rd Qu.:1.0000   3rd Qu.: 0.0000   3rd Qu.:19.00   3rd Qu.:3.000  
+ Max.   :1.0000   Max.   : 1.0000   Max.   :38.00   Max.   :3.000  
                                                                    
        M                 J0                J45           
  Min.   :-8.8750   Min.   :-0.82983   Min.   :-2.054075  
@@ -1608,14 +1606,14 @@ variables</h2>
  3rd Qu.: 0.600   3rd Qu.:-0.2500   3rd Qu.:156.00   3rd Qu.:2.000  
  Max.   : 8.610   Max.   : 0.0000   Max.   :180.00   Max.   :3.000  
                   NA&#39;s   :4         NA&#39;s   :10       NA&#39;s   :3      
-     esfera            CA              RC           CA_RC_1     
- Min.   :1.000   Min.   :20.15   Min.   :6.925   Min.   :2.590  
- 1st Qu.:1.000   1st Qu.:22.88   1st Qu.:7.595   1st Qu.:2.957  
- Median :1.000   Median :23.52   Median :7.785   Median :3.014  
- Mean   :1.286   Mean   :23.63   Mean   :7.799   Mean   :3.031  
- 3rd Qu.:2.000   3rd Qu.:24.23   3rd Qu.:7.971   3rd Qu.:3.081  
- Max.   :2.000   Max.   :27.70   Max.   :9.240   Max.   :3.558  
-                                                                </code></pre>
+       CA              RC            CA_RC      
+ Min.   :20.15   Min.   :6.925   Min.   :2.590  
+ 1st Qu.:22.88   1st Qu.:7.595   1st Qu.:2.957  
+ Median :23.52   Median :7.785   Median :3.014  
+ Mean   :23.63   Mean   :7.799   Mean   :3.031  
+ 3rd Qu.:24.23   3rd Qu.:7.971   3rd Qu.:3.081  
+ Max.   :27.70   Max.   :9.240   Max.   :3.558  
+                                                </code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>##numerical variables with missing values: J0, J45, cil, eje, orient_astigm</span></span></code></pre>
 </div>
@@ -1633,20 +1631,19 @@ variables</h2>
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/grDevices/boxplot.stats.html'>boxplot.stats</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>edad</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>$stats
-[1]  5.00000 13.00000 18.07255 18.57358 26.46954
+[1]  5 13 18 19 28
 
 $n
 [1] 1150
 
 $conf
-[1] 17.81287 18.33224
+[1] 17.72045 18.27955
 
 $out
- [1] 27.35661 28.88433 30.54620 31.23888 33.48392 28.19165 36.49555
- [8] 33.36893 36.35044 34.38193 38.08898 26.99247</code></pre>
+[1] 29 31 31 33 36 33 36 34 38</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>##Variable M</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>M</span>, col<span class='op'>=</span><span class='st'>"lightgreen"</span>, main<span class='op'>=</span><span class='st'>"M Boxplot"</span>,</span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>M</span>, col<span class='op'>=</span><span class='st'>"lightgreen"</span>, main<span class='op'>=</span><span class='st'>"Graduación Componente Esférica Boxplot"</span>,</span>
 <span>        ylab<span class='op'>=</span><span class='st'>"M"</span><span class='op'>)</span></span></code></pre>
 </div>
 <img src="entrega-ii-preparacion-de-los-datos_files/figure-html5/unnamed-chunk-3-2.png" width="624" />
@@ -1689,7 +1686,7 @@ $out
 [139] -3.775000 -3.795000 -2.870000 -2.980000 -3.630000 -2.565000</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>##Variable J0</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>J0</span>, col<span class='op'>=</span><span class='st'>"lightpink"</span>, main<span class='op'>=</span><span class='st'>"J0 Boxplot"</span>,</span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>J0</span>, col<span class='op'>=</span><span class='st'>"lightpink"</span>, main<span class='op'>=</span><span class='st'>"Componente Vectorial Horizontal Boxplot"</span>,</span>
 <span>        ylab<span class='op'>=</span><span class='st'>"J0"</span><span class='op'>)</span></span></code></pre>
 </div>
 <img src="entrega-ii-preparacion-de-los-datos_files/figure-html5/unnamed-chunk-3-3.png" width="624" />
@@ -1721,7 +1718,7 @@ $out
 [73] -0.5168309  0.6799775  0.6830835  0.6745888</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>##Variable J45</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>J45</span>, col<span class='op'>=</span><span class='st'>"violet"</span>, main<span class='op'>=</span><span class='st'>"J45 Boxplot"</span>,</span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>J45</span>, col<span class='op'>=</span><span class='st'>"violet"</span>, main<span class='op'>=</span><span class='st'>"Componente Vectorial Oblicuo Boxplot"</span>,</span>
 <span>        ylab<span class='op'>=</span><span class='st'>"J45"</span><span class='op'>)</span></span></code></pre>
 </div>
 <img src="entrega-ii-preparacion-de-los-datos_files/figure-html5/unnamed-chunk-3-4.png" width="624" />
@@ -1851,7 +1848,7 @@ $out
 numeric(0)</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>##Variable CA</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>CA</span>, col<span class='op'>=</span><span class='st'>"#CBF4A9"</span>, main<span class='op'>=</span><span class='st'>"Longitud del Ojo Boxplot"</span>,</span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>CA</span>, col<span class='op'>=</span><span class='st'>"#CBF4A9"</span>, main<span class='op'>=</span><span class='st'>"Longitud Axial del Ojo Boxplot"</span>,</span>
 <span>        ylab<span class='op'>=</span><span class='st'>"CA"</span><span class='op'>)</span></span></code></pre>
 </div>
 <img src="entrega-ii-preparacion-de-los-datos_files/figure-html5/unnamed-chunk-3-8.png" width="624" />
@@ -1893,13 +1890,13 @@ $out
  [1] 9.235 8.575 8.840 8.645 8.585 8.600 8.550 8.680 8.630 8.620 8.785
 [12] 9.240 6.925 8.680 9.155</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>##Variable CA_RC_1</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>CA_RC_1</span>, col<span class='op'>=</span><span class='st'>"#F6B7B7"</span>, main<span class='op'>=</span><span class='st'>"CA_RC_1 Boxplot"</span>,</span>
-<span>        ylab<span class='op'>=</span><span class='st'>"CA_RC_1"</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>##Variable CA_RC</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>CA_RC</span>, col<span class='op'>=</span><span class='st'>"#F6B7B7"</span>, main<span class='op'>=</span><span class='st'>"Predictor Defecto Refractivo Boxplot"</span>,</span>
+<span>        ylab<span class='op'>=</span><span class='st'>"CA_RC"</span><span class='op'>)</span></span></code></pre>
 </div>
 <img src="entrega-ii-preparacion-de-los-datos_files/figure-html5/unnamed-chunk-3-10.png" width="624" />
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/grDevices/boxplot.stats.html'>boxplot.stats</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>CA_RC_1</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/grDevices/boxplot.stats.html'>boxplot.stats</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>$</span><span class='va'>CA_RC</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>$stats
 [1] 2.774036 2.957317 3.013626 3.081188 3.264911

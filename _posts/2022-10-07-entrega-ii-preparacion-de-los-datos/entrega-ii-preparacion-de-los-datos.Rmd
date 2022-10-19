@@ -31,44 +31,90 @@ summary(data)
 ## Outliers & Boxplots
 ```{r}
 #see outliers of non-binary variables
+
 ##variable edad
 boxplot(data$edad, col="lightblue", main="Edad Boxplot",
         ylab="Edad")
-boxplot.stats(data$edad)
+stats_edad = boxplot.stats(data$edad)
+
+  ##12 outliers
+
 ##Variable M
 boxplot(data$M, col="lightgreen", main="Graduación Componente Esférica Boxplot",
         ylab="M")
 boxplot.stats(data$M)
+
+  ##144 outliers
+
 ##Variable J0
 boxplot(data$J0, col="lightpink", main="Componente Vectorial Horizontal Boxplot",
         ylab="J0")
 boxplot.stats(data$J0)
+
+  ## 76 outliers
+
 ##Variable J45
 boxplot(data$J45, col="violet", main="Componente Vectorial Oblicuo Boxplot",
         ylab="J45")
 boxplot.stats(data$J45)
+
+  ##66 outliers
+
 ##Variable esf
 boxplot(data$esf, col="orange", main="Esfera Boxplot",
         ylab="Esfera")
 boxplot.stats(data$esf)
+
+  ##161 outliers
+
 ##Variable cil
 boxplot(data$cil, col="lightyellow", main="Cilindro Boxplot",
         ylab="Cilindro")
 boxplot.stats(data$cil)
+
+  ##88 outliers 
+
 ##Variable eje
 boxplot(data$eje, col="#3391FF", main="Eje Boxplot",
         ylab="Eje")
 boxplot.stats(data$eje)
+
+  ##sin outliers
+
 ##Variable CA
 boxplot(data$CA, col="#CBF4A9", main="Longitud Axial del Ojo Boxplot",
         ylab="CA")
 boxplot.stats(data$CA)
+
+  ##25 outliers
+
 ##Variable RC
 boxplot(data$RC, col="#B7F6DA", main="Radio de Curvatura Boxplot",
         ylab="RC")
 boxplot.stats(data$RC)
+
+  ##15 outliers
+
 ##Variable CA_RC
 boxplot(data$CA_RC, col="#F6B7B7", main="Predictor Defecto Refractivo Boxplot",
         ylab="CA_RC")
 boxplot.stats(data$CA_RC)
+
+  ##58 outliers
+```
+
+interpretacion outliers
+
+## Missing Values
+```{r}
+#Nearest Neighbor - Treat missing values
+
+##apply o nearest neighbor (kk), with k=5 because it's a default value
+##numerical variables with missing values: J0, J45, cil, eje, orient_astigm
+
+library(VIM)
+dataKNN<-kNN(data, variable=c("J0","J45","cil","eje","orient_astigm"), k=5)
+summary(dataKNN)
+dataKNN<-subset(dataKNN, select=id:CA_RC)
+summary(dataKNN)
 ```

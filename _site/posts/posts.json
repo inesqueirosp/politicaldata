@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-10-19-tarea-clase-06-octubre/",
+    "title": "Tarea Clase 06 octubre",
+    "description": "Tarea de la clase del día 06 de octubre del curso ICP5006-1 sobre variables latentes.",
+    "author": [
+      {
+        "name": "Ines Pereira",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2022-10-19",
+    "categories": [],
+    "contents": "\r\nProyecto de Investigación\r\nImpacto de los cambios de los componentes ópticos oculares en la\r\nrefracción de los jóvenes\r\nIntroducción\r\nUna variable latente es una variable que no se puede observar. Sin\r\nembargo, la presencia de variables latentes puede detectarse por sus\r\nefectos sobre las variables observables.\r\nAsí, las variables latentes son variables que sólo pueden inferirse\r\nindirectamente a través de un modelo a partir de otras variables\r\nobservables, que pueden observarse o medirse directamente.\r\nA continuación, se exploran dos ejemplos de variables latentes\r\npresentes en este proyecto de investigación.\r\nCaso 1\r\nVariable LatenteM: Graduación de una persona determinada en su componente\r\nesférica\r\n\r\nVariables observadasEsf: Valor de la esfera de la refracción convencional\r\nCil: Valor del cilindro de la refracción convencional\r\nα: Valor del eje de la refracción convencional\r\n\r\nModelo\r\nM = Esf + Cil/2\r\nJ0 = -Cil x cos (2 α)/2\r\nJ45 = -Cil x sin (2 α)/2\r\nCaso 2\r\nVariable Latenteorient_astigm: Orientación del astigmatismo\r\n\r\nVariable observadaα: Valor del eje de la refracción convencional\r\n\r\nModelo\r\nα < 20.01 -> orient_astigm = 1\r\n20.01 < α < 70 -> orient_astigm = 2\r\n70 < α < 110.011 -> orient_astigm = 3\r\n110.011 < α <159.99 -> orient_astigm = 2\r\n159.99 < α < 181 -> orient_astigm = 1\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2022-10-19T17:50:17-03:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2022-10-07-entrega-ii-preparacion-de-los-datos/",
     "title": "Entrega II - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes",
     "description": "En este post se presenta la primera fase del análisis de datos - preparación de datos - en la que se analizan las características de las variables y se procesa el tratamiento de los datos. Además, se realiza un análisis gráfico de los datos. [WIP]",

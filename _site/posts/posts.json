@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-10-20-entrega-iii-modelos/",
+    "title": "Entrega III - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes",
+    "description": "En este post se presenta la construcción y el análisis de modelos que permiten relacionar los datos y evaluar la hipótesis que estudia este proyecto de investigación: la graduación de una persona determinada en su componente esférica (M) cambia con la longitud del ojo (CA) y el radio de curvatura (RC). [WIP]",
+    "author": [
+      {
+        "name": "Ines Pereira",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2022-10-20",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2022-10-20T16:56:16-03:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2022-10-19-tarea-clase-06-octubre/",
     "title": "Tarea Clase 06 octubre",
     "description": "Tarea de la clase del día 06 de octubre del curso ICP5006-1 sobre variables latentes.",

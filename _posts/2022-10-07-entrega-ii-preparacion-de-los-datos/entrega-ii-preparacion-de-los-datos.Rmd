@@ -15,30 +15,33 @@ output:
 
 ## Base de datos
 ```{r}
-library(xlsx)
-data <- read.xlsx("base_datos.xlsx",1)
+data <- read.csv("base_datos.csv", header = T, sep = ",", dec = ".")
 data <- data.frame(data)
-str(data)
-```
-## Características de las variables
-```{r}
-data$eje=as.numeric(data$eje)
-data$orient_astigm=as.numeric(data$orient_astigm)
-str(data)
-summary(data)
-##numerical variables with missing values: J0, J45, cil, eje, orient_astigm
 ```
 
-Después de analizar las características de las distintas variables, se comprobó que dos variables que deberían de ser numéricas estaban como caracteres, por lo que se realizaron los cambios necesarios en el tipo de variables transformándose en numéricas.
+## Características de las variables
+```{r}
+str(data)
+summary(data)
+##numerical variables with missing values: J0, J45, cil, eje
+data$sexo = as.factor(data$sexo)
+data$ametropia = as.factor(data$ametropia)
+data$grupo_etario = as.factor(data$grupo_etario)
+data$orient_astigm = as.factor(data$orient_astigm)
+str(data)
+summary(data)
+```
+
+Después de analizar las características de las distintas variables, se comprobó que variables que deberían de estar como factores, como la variable binaria sexo y las variables con niveles (ametropia, grupo_etario, orient_astigm) estaban como variables enteras (integer). Por lo tanto, se realizaron los cambios necesarios en el tipo de variables transformándose en factores
 
 ## Outliers & Boxplots
 ```{r}
-#see outliers of non-binary variables
+#see outliers of numerical variables
 
 ##variable edad
 boxplot(data$edad, col="lightblue", main="Edad Boxplot",
         ylab="Edad")
-stats_edad = boxplot.stats(data$edad)
+boxplot.stats(data$edad)
 
   ##12 outliers
 
@@ -113,10 +116,10 @@ Al analizar los boxplots y la presencia de outliers, se comprobó que 9 variable
 #Nearest Neighbor - Treat missing values
 
 ##apply o nearest neighbor (kk), with k=5 because it's a default value
-##numerical variables with missing values: J0, J45, cil, eje, orient_astigm
+##numerical variables with missing values: J0, J45, cil, eje
 
 library(VIM)
-dataKNN<-kNN(data, variable=c("J0","J45","cil","eje","orient_astigm"), k=5)
+dataKNN<-kNN(data, variable=c("J0","J45","cil","eje"), k=5)
 summary(dataKNN)
 dataKNN<-subset(dataKNN, select=id:CA_RC)
 summary(dataKNN)
@@ -127,28 +130,38 @@ Después de constatar la existencia de missing values en los datos, se utilizó 
 ##Histograma
 ```{r}
 #variable dependiente: M
-dataKNN %>% 
-  ggplot(aes(x = M, na.rm = T)) +
+library(ggplot2)
+  ggplot(dataKNN, aes(x = M)) +
   geom_histogram(binwidth = 0.05) +
   labs(x = "Graduación de las personas en estudio determinada en su componente esférica ", y = "Frecuencia",
        title = "Distribución de la variable dependiente")
 ```
+El histograma muestra que la variable dependiente estudiada sigue una distribución aproximadamente normal, con la mayoría de las observaciones concentradas entre +1 y -1 dioptrías. 
+
 ##Correlaciones & Scatterplots
 ```{r}
-library(ggplot2)
 
-ggplot(aes(x=dataKNN$CA, y=dataKNN$M)) +
+ggplot(dataKNN, aes(x=CA, y=M)) +
   geom_point(color="lightblue", size=2, shape=23) + 
   labs(x = "Longitud Axial del Ojo", y = "Graduación de las personas",
        title = "Relacion entre la longitud axial del ojo y la graduación de las personas")
 
-ggplot(aes(x=dataKNN$CA, y=dataKNN$RC)) +
+ggplot(dataKNN, aes(x=RC, y=M)) +
+  geom_point(color="lightpink", size=2, shape=23) + 
+  labs(x = "Radio de Curvatura del Ojo", y = "Graduación de las personas",
+       title = "Relacion entre la longitud axial del ojo y la graduación de las personas")
+
+ggplot(dataKNN, aes(x=RC, y=CA)) +
   geom_point(color="lightgreen", size=2, shape=23) + 
-  labs(x = "Longitud Axial del Ojo", y = "Radio de Curvatura del Ojo",
+  labs(x = "Radio de Curvatura del Ojo", y = "Longitud Axial del Ojo",
        title = "Relacion entre la longitud axial y el radio de curavatura del ojo")
 
-ggplot(aes(x=dataKNN$CA, y=dataKNN$edad)) +
+ggplot(dataKNN, aes(x=edad, y=CA)) +
   geom_point(color="violet", size=2, shape=23) + 
-  labs(x = "Longitud Axial del Ojo", y = "Edad las personas",
+  labs(x = "Edad de las personas", y = "Longitud Axial del Ojo",
        title = "Relacion entre la longitud axial del ojo y la edad de las personas")
 ```
+
+Al analizar los gráficos de correlación, se observa que las variables independientes, CA (longitud axial del ojo) y RC (radio de curvatura del ojo) tienen una relación similar con la variable independiente, aunque parcialmente simétrica entre sí. Esto se puede comprobar además en el gráfico de comparación entre estas dos variables independientes, que muestra una relación con tendencia lineal.
+Además, al analizar cómo afecta la edad a la longitud de los ojos de las personas, se observa una tendencia al aumento de la longitud con la edad, hasta una determinada edad, y una posterior estabilización de la longitud de los ojos. Esta observación demuestra una posible relación del crecimiento del ojo con el crecimiento de las personas, que se estabiliza después de la pubertad. 
+Así, el análisis de estos gráficos nos permitió inferir posibles relaciones entre las distintas variables, que posteriormente serán probadas y analizadas mediante modelos. 

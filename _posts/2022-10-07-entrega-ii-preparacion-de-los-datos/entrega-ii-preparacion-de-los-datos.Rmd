@@ -1,7 +1,7 @@
 ---
 title: "Entrega II - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes"
 description: |
-   En este post se presenta la primera fase del análisis de datos - preparación de datos - en la que se analizan las características de las variables y se procesa el tratamiento de los datos. Además, se realiza un análisis gráfico de los datos. [WIP]
+   En este post se presenta la primera fase del análisis de datos - preparación de datos - en la que se analizan las características de las variables y se procesa el tratamiento de los datos. Además, se realiza un análisis gráfico de los datos.
 author:
   - name: Ines Pereira
     url: https://example.com/norajones

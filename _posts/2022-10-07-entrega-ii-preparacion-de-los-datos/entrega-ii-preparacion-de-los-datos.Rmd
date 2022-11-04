@@ -117,7 +117,6 @@ Al analizar los boxplots y la presencia de outliers, se comprobó que 9 variable
 
 ##apply o nearest neighbor (kk), with k=5 because it's a default value
 ##numerical variables with missing values: J0, J45, cil, eje
-
 library(VIM)
 dataKNN<-kNN(data, variable=c("J0","J45","cil","eje"), k=5)
 summary(dataKNN)

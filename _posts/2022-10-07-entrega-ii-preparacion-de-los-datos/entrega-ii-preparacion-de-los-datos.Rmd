@@ -28,6 +28,9 @@ str(data)
 summary(data)
 ##numerical variables with missing values: J0, J45, cil, eje, orient_astigm
 ```
+
+Después de analizar las características de las distintas variables, se comprobó que dos variables que deberían de ser numéricas estaban como caracteres, por lo que se realizaron los cambios necesarios en el tipo de variables transformándose en numéricas.
+
 ## Outliers & Boxplots
 ```{r}
 #see outliers of non-binary variables
@@ -103,7 +106,7 @@ boxplot.stats(data$CA_RC)
   ##58 outliers
 ```
 
-interpretacion outliers
+Al analizar los boxplots y la presencia de outliers, se comprobó que 9 variables contenían outliers, y la variable en la que la presencia de outliers era más considerable, era sólo el 10%. Después de la análisis, se decidió no eliminar ninguno de los outliers. Para estos datos analizados, se sabe que es probable que existan todos estos valores, por lo que los outliers no reflejan valores imposibles. Además, según la medición realizada, también se descartan los errores de medición. Así, los valores extremos presentes en estos datos, existen porque reflejan la graduación de una persona que se supone está relacionada con la longitud del ojo de una persona, por ejemplo, una mayor longitud de un ojo, dará una mayor graduación. Como las personas son diferentes y existen distintas longitudes de ojos, es importante analizar incluso las más extremas para conocer la relación entre estas variables. Por lo tanto, no se eliminaron los outliers.
 
 ## Missing Values
 ```{r}
@@ -117,4 +120,35 @@ dataKNN<-kNN(data, variable=c("J0","J45","cil","eje","orient_astigm"), k=5)
 summary(dataKNN)
 dataKNN<-subset(dataKNN, select=id:CA_RC)
 summary(dataKNN)
+```
+
+Después de constatar la existencia de missing values en los datos, se utilizó un método para sustituir estos valores ausentes. Para eso, se utilizó el método de estimación del Nearest-Neighbour (vecino más cercano), que identifica los k vecinos más cercanos de la observación que falta y predice el valor de la variable en esa observación, basándose en el valor encontrado en la mayoría de los vecinos. De este modo, mediante la búsqueda de los 5 vecinos más cercanos, fue posible obtener una estimación adecuada de los valores ausentes para las distintas variables.
+
+##Histograma
+```{r}
+#variable dependiente: M
+dataKNN %>% 
+  ggplot(aes(x = M, na.rm = T)) +
+  geom_histogram(binwidth = 0.05) +
+  labs(x = "Graduación de las personas en estudio determinada en su componente esférica ", y = "Frecuencia",
+       title = "Distribución de la variable dependiente")
+```
+##Correlaciones & Scatterplots
+```{r}
+library(ggplot2)
+
+ggplot(aes(x=dataKNN$CA, y=dataKNN$M)) +
+  geom_point(color="lightblue", size=2, shape=23) + 
+  labs(x = "Longitud Axial del Ojo", y = "Graduación de las personas",
+       title = "Relacion entre la longitud axial del ojo y la graduación de las personas")
+
+ggplot(aes(x=dataKNN$CA, y=dataKNN$RC)) +
+  geom_point(color="lightgreen", size=2, shape=23) + 
+  labs(x = "Longitud Axial del Ojo", y = "Radio de Curvatura del Ojo",
+       title = "Relacion entre la longitud axial y el radio de curavatura del ojo")
+
+ggplot(aes(x=dataKNN$CA, y=dataKNN$edad)) +
+  geom_point(color="violet", size=2, shape=23) + 
+  labs(x = "Longitud Axial del Ojo", y = "Edad las personas",
+       title = "Relacion entre la longitud axial del ojo y la edad de las personas")
 ```

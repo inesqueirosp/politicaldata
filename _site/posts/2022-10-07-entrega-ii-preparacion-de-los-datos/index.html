@@ -2660,7 +2660,7 @@ $out
  Max.   :9.240   Max.   :3.560  </code></pre>
 </div>
 <p>Después de constatar la existencia de missing values en los datos, se utilizó un método para sustituir estos valores ausentes. Para eso, se utilizó el método de estimación del Nearest-Neighbour (vecino más cercano), que identifica los k vecinos más cercanos de la observación que falta y predice el valor de la variable en esa observación, basándose en el valor encontrado en la mayoría de los vecinos. De este modo, mediante la búsqueda de los 5 vecinos más cercanos, fue posible obtener una estimación adecuada de los valores ausentes para las distintas variables.</p>
-##Histograma
+<h2 id="histograma">Histograma</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#variable dependiente: M</span></span>
@@ -2673,7 +2673,7 @@ $out
 <p><img src="entrega-ii-preparacion-de-los-datos_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
 <p>El histograma muestra que la variable dependiente estudiada sigue una distribución aproximadamente normal, con la mayoría de las observaciones concentradas entre +1 y -1 dioptrías.</p>
-##Correlaciones &amp; Scatterplots
+<h2 id="correlaciones-scatterplots">Correlaciones &amp; Scatterplots</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dataKNN</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>CA</span>, y<span class='op'>=</span><span class='va'>M</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>

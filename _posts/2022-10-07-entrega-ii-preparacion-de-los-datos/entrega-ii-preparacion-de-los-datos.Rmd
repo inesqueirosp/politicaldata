@@ -126,7 +126,7 @@ summary(dataKNN)
 
 Después de constatar la existencia de missing values en los datos, se utilizó un método para sustituir estos valores ausentes. Para eso, se utilizó el método de estimación del Nearest-Neighbour (vecino más cercano), que identifica los k vecinos más cercanos de la observación que falta y predice el valor de la variable en esa observación, basándose en el valor encontrado en la mayoría de los vecinos. De este modo, mediante la búsqueda de los 5 vecinos más cercanos, fue posible obtener una estimación adecuada de los valores ausentes para las distintas variables.
 
-##Histograma
+## Histograma
 ```{r}
 #variable dependiente: M
 library(ggplot2)
@@ -137,7 +137,7 @@ library(ggplot2)
 ```
 El histograma muestra que la variable dependiente estudiada sigue una distribución aproximadamente normal, con la mayoría de las observaciones concentradas entre +1 y -1 dioptrías. 
 
-##Correlaciones & Scatterplots
+## Correlaciones & Scatterplots
 ```{r}
 
 ggplot(dataKNN, aes(x=CA, y=M)) +

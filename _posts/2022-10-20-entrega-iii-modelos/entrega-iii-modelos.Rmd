@@ -18,4 +18,27 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+## Introducción
+
+Para evaluar la hipótesis en estudio, es necesario analizar cómo las variables independientes se relacionan con la variable dependiente y la predicen. Para que la hipótesis sea cierta, la longitud del ojo y el radio de curvatura tienen que ser buenos estimadores del grado de una persona y permitir la predicción de su resultado. 
+
+## Modelos de Regresión
+
+Una forma de analizar y estimar el valor de la variable dependiente en estudio es mediante un modelo de regresión. Los modelos de regresión se basan en una ecuación para estimar el valor esperado de una variable y (dependiente), dados los valores de algunas otras variables x (independientes). Cuando sólo hay una variable independiente, se considera una regresión simple; en caso contrario, se considera una regresión múltiple. Además, estos modelos consisten en crear una línea que se ajuste lo mejor posible a la dispersión de los datos de forma gráfica, con el fin de estimar el valor deseado. Así, los modelos de regresión consisten en modelos estadísticos que permiten ajustarse a la realidad. 
+
+Los modelos de regresión pueden ser lineales cuando se considera que la relación entre las variables es una función lineal. Si la función no es lineal, los modelos se denominan modelos de regresión no lineal.
+
+Considerando un modelo de regresión lineal, éste puede definirse mediante la siguiente ecuación:
+
+$$Y = α + βX + ε$$
+
+Y: Variable dependiente
+
+α: Intercepto - representa la intersección de la línea recta con el eje vertical
+
+β: Pendiente - representa la inclinación en relación con la variable independiente
+
+X: Variable independiente 
+
+ε: Error residual 
 

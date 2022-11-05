@@ -118,7 +118,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["entrega-iii-modelos_files/anchor-4.2.2/anchor.min.js","entrega-iii-modelos_files/bowser-1.9.3/bowser.min.js","entrega-iii-modelos_files/distill-2.2.21/template.v2.js","entrega-iii-modelos_files/header-attrs-2.16/header-attrs.js","entrega-iii-modelos_files/jquery-3.6.0/jquery-3.6.0.js","entrega-iii-modelos_files/jquery-3.6.0/jquery-3.6.0.min.js","entrega-iii-modelos_files/jquery-3.6.0/jquery-3.6.0.min.map","entrega-iii-modelos_files/popper-2.6.0/popper.min.js","entrega-iii-modelos_files/tippy-6.2.7/tippy-bundle.umd.min.js","entrega-iii-modelos_files/tippy-6.2.7/tippy-light-border.css","entrega-iii-modelos_files/tippy-6.2.7/tippy.css","entrega-iii-modelos_files/tippy-6.2.7/tippy.umd.min.js","entrega-iii-modelos_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["entrega-iii-modelos_files/anchor-4.2.2/anchor.min.js","entrega-iii-modelos_files/bowser-1.9.3/bowser.min.js","entrega-iii-modelos_files/distill-2.2.21/template.v2.js","entrega-iii-modelos_files/header-attrs-2.14/header-attrs.js","entrega-iii-modelos_files/header-attrs-2.16/header-attrs.js","entrega-iii-modelos_files/jquery-3.6.0/jquery-3.6.0.js","entrega-iii-modelos_files/jquery-3.6.0/jquery-3.6.0.min.js","entrega-iii-modelos_files/jquery-3.6.0/jquery-3.6.0.min.map","entrega-iii-modelos_files/popper-2.6.0/popper.min.js","entrega-iii-modelos_files/tippy-6.2.7/tippy-bundle.umd.min.js","entrega-iii-modelos_files/tippy-6.2.7/tippy-light-border.css","entrega-iii-modelos_files/tippy-6.2.7/tippy.css","entrega-iii-modelos_files/tippy-6.2.7/tippy.umd.min.js","entrega-iii-modelos_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -189,6 +189,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1261,15 +1262,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1468,7 +1475,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="entrega-iii-modelos_files/header-attrs-2.16/header-attrs.js"></script>
+  <script src="entrega-iii-modelos_files/header-attrs-2.14/header-attrs.js"></script>
   <script src="entrega-iii-modelos_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="entrega-iii-modelos_files/popper-2.6.0/popper.min.js"></script>
   <link href="entrega-iii-modelos_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1502,25 +1509,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>Entrega III - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>En este post se presenta la construcción y el análisis de modelos
-que permiten relacionar los datos y evaluar la hipótesis que estudia
-este proyecto de investigación: la graduación de una persona determinada
-en su componente esférica (M) cambia con la longitud del ojo (CA) y el
-radio de curvatura (RC). [WIP]</p></p>
+<p><p>En este post se presenta la construcción y el análisis de modelos que permiten relacionar los datos y evaluar la hipótesis que estudia este proyecto de investigación: la graduación de una persona determinada en su componente esférica (M) cambia con la longitud del ojo (CA) y el radio de curvatura (RC). [WIP]</p></p>
 </div>
 
 <div class="d-byline">
-  Ines Pereira <a href="https://example.com/norajones"
-class="uri">https://example.com/norajones</a> (Spacely Sprockets)<a
-href="https://example.com/spacelysprokets"
-class="uri">https://example.com/spacelysprokets</a>
+  Ines Pereira <a href="https://example.com/norajones" class="uri">https://example.com/norajones</a> (Spacely Sprockets)<a href="https://example.com/spacelysprokets" class="uri">https://example.com/spacelysprokets</a>
   
 <br/>2022-10-20
 </div>
 
 <div class="d-article">
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="introducción">Introducción</h2>
+<p>Para evaluar la hipótesis en estudio, es necesario analizar cómo las variables independientes se relacionan con la variable dependiente y la predicen. Para que la hipótesis sea cierta, la longitud del ojo y el radio de curvatura tienen que ser buenos estimadores del grado de una persona y permitir la predicción de su resultado.</p>
+<h2 id="modelos-de-regresión">Modelos de Regresión</h2>
+<p>Una forma de analizar y estimar el valor de la variable dependiente en estudio es mediante un modelo de regresión. Los modelos de regresión se basan en una ecuación para estimar el valor esperado de una variable y (dependiente), dados los valores de algunas otras variables x (independientes). Cuando sólo hay una variable independiente, se considera una regresión simple; en caso contrario, se considera una regresión múltiple. Además, estos modelos consisten en crear una línea que se ajuste lo mejor posible a la dispersión de los datos de forma gráfica, con el fin de estimar el valor deseado. Así, los modelos de regresión consisten en modelos estadísticos que permiten ajustarse a la realidad.</p>
+<p>Los modelos de regresión pueden ser lineales cuando se considera que la relación entre las variables es una función lineal. Si la función no es lineal, los modelos se denominan modelos de regresión no lineal.</p>
+<p>Considerando un modelo de regresión lineal, éste puede definirse mediante la siguiente ecuación:</p>
+<p><span class="math display">\[Y = α + βX + ε\]</span></p>
+<p>Y: Variable dependiente</p>
+<p>α: Intercepto - representa la intersección de la línea recta con el eje vertical</p>
+<p>β: Pendiente - representa la inclinación en relación con la variable independiente</p>
+<p>X: Variable independiente</p>
+<p>ε: Error residual</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1528,6 +1539,15 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

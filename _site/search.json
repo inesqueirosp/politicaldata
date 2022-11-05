@@ -5,25 +5,15 @@
       "title": "About this blog",
       "description": "Some additional details about the blog",
       "author": [],
-<<<<<<< HEAD
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-11-04T23:46:48-03:00"
-=======
-      "contents": "\n\n\n\n",
-      "last_modified": "2022-11-04T11:13:50-03:00"
->>>>>>> de2f4256ddd02d048c9a8e9aafd7d968f6505a98
+      "last_modified": "2022-11-04T23:58:18-03:00"
     },
     {
       "path": "index.html",
       "title": "Clases Datos Politicos ",
       "author": [],
-<<<<<<< HEAD
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-11-04T23:46:49-03:00"
-=======
-      "contents": "\n\n\n\n",
-      "last_modified": "2022-11-04T11:13:51-03:00"
->>>>>>> de2f4256ddd02d048c9a8e9aafd7d968f6505a98
+      "last_modified": "2022-11-04T23:58:19-03:00"
     }
   ],
   "collections": ["posts/posts.json"]

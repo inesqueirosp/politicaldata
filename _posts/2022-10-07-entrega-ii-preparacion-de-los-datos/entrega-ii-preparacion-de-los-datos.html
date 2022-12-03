@@ -189,7 +189,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
-    font-size: 100%;
   }
 
   .html-widget {
@@ -1262,21 +1261,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        const citeChild = $(this).children()[0]
-        // Do not process if @xyz has been used without escaping and without bibliography activated
-        // https://github.com/rstudio/distill/issues/466
-        if (citeChild === undefined) return true
-
-        if (citeChild.nodeName == "D-FOOTNOTE") {
-          var fn = citeChild
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          // Could use CSS.escape too here, we insure backward compatibility in navigator
-          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1475,7 +1468,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="entrega-ii-preparacion-de-los-datos_files/header-attrs-2.14/header-attrs.js"></script>
+  <script src="entrega-ii-preparacion-de-los-datos_files/header-attrs-2.16/header-attrs.js"></script>
   <script src="entrega-ii-preparacion-de-los-datos_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="entrega-ii-preparacion-de-los-datos_files/popper-2.6.0/popper.min.js"></script>
   <link href="entrega-ii-preparacion-de-los-datos_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1509,11 +1502,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>Entrega II - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>En este post se presenta la primera fase del análisis de datos - preparación de datos - en la que se analizan las características de las variables y se procesa el tratamiento de los datos. Además, se realiza un análisis gráfico de los datos.</p></p>
+<p><p>En este post se presenta la primera fase del análisis de datos -
+preparación de datos - en la que se analizan las características de las
+variables y se procesa el tratamiento de los datos. Además, se realiza
+un análisis gráfico de los datos.</p></p>
 </div>
 
 <div class="d-byline">
-  Ines Pereira <a href="https://example.com/norajones" class="uri">https://example.com/norajones</a> (Spacely Sprockets)<a href="https://example.com/spacelysprokets" class="uri">https://example.com/spacelysprokets</a>
+  Ines Pereira <a href="https://example.com/norajones"
+class="uri">https://example.com/norajones</a> (Spacely Sprockets)<a
+href="https://example.com/spacelysprokets"
+class="uri">https://example.com/spacelysprokets</a>
   
 <br/>2022-10-07
 </div>
@@ -1526,7 +1525,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<h2 id="características-de-las-variables">Características de las variables</h2>
+<h2 id="características-de-las-variables">Características de las
+variables</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span></code></pre>
@@ -1662,7 +1662,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
  Max.   :9.240   Max.   :3.560  
                                 </code></pre>
 </div>
-<p>Después de analizar las características de las distintas variables, se comprobó que variables que deberían de estar como factores, como la variable binaria sexo y las variables con niveles (ametropia, grupo_etario, orient_astigm) estaban como variables enteras (integer). Por lo tanto, se realizaron los cambios necesarios en el tipo de variables transformándose en factores</p>
+<p>Después de analizar las características de las distintas variables,
+se comprobó que variables que deberían de estar como factores, como la
+variable binaria sexo y las variables con niveles (ametropia,
+grupo_etario, orient_astigm) estaban como variables enteras (integer).
+Por lo tanto, se realizaron los cambios necesarios en el tipo de
+variables transformándose en factores</p>
 <h2 id="outliers-boxplots">Outliers &amp; Boxplots</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1945,7 +1950,20 @@ $out
 <pre class="sourceCode r"><code class="sourceCode r"><span>  <span class='co'>##58 outliers</span></span></code></pre>
 </div>
 </div>
-<p>Al analizar los boxplots y la presencia de outliers, se comprobó que 9 variables contenían outliers, y la variable en la que la presencia de outliers era más considerable, era sólo el 10%. Después de la análisis, se decidió no eliminar ninguno de los outliers. Para estos datos analizados, se sabe que es probable que existan todos estos valores, por lo que los outliers no reflejan valores imposibles. Además, según la medición realizada, también se descartan los errores de medición. Así, los valores extremos presentes en estos datos, existen porque reflejan la graduación de una persona que se supone está relacionada con la longitud del ojo de una persona, por ejemplo, una mayor longitud de un ojo, dará una mayor graduación. Como las personas son diferentes y existen distintas longitudes de ojos, es importante analizar incluso las más extremas para conocer la relación entre estas variables. Por lo tanto, no se eliminaron los outliers.</p>
+<p>Al analizar los boxplots y la presencia de outliers, se comprobó que
+9 variables contenían outliers, y la variable en la que la presencia de
+outliers era más considerable, era sólo el 10%. Después de la análisis,
+se decidió no eliminar ninguno de los outliers. Para estos datos
+analizados, se sabe que es probable que existan todos estos valores, por
+lo que los outliers no reflejan valores imposibles. Además, según la
+medición realizada, también se descartan los errores de medición. Así,
+los valores extremos presentes en estos datos, existen porque reflejan
+la graduación de una persona que se supone está relacionada con la
+longitud del ojo de una persona, por ejemplo, una mayor longitud de un
+ojo, dará una mayor graduación. Como las personas son diferentes y
+existen distintas longitudes de ojos, es importante analizar incluso las
+más extremas para conocer la relación entre estas variables. Por lo
+tanto, no se eliminaron los outliers.</p>
 <h2 id="missing-values">Missing Values</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2039,7 +2057,15 @@ $out
  3rd Qu.:7.970   3rd Qu.:3.080  
  Max.   :9.240   Max.   :3.560  </code></pre>
 </div>
-<p>Después de constatar la existencia de missing values en los datos, se utilizó un método para sustituir estos valores ausentes. Para eso, se utilizó el método de estimación del Nearest-Neighbour (vecino más cercano), que identifica los k vecinos más cercanos de la observación que falta y predice el valor de la variable en esa observación, basándose en el valor encontrado en la mayoría de los vecinos. De este modo, mediante la búsqueda de los 5 vecinos más cercanos, fue posible obtener una estimación adecuada de los valores ausentes para las distintas variables.</p>
+<p>Después de constatar la existencia de missing values en los datos, se
+utilizó un método para sustituir estos valores ausentes. Para eso, se
+utilizó el método de estimación del Nearest-Neighbour (vecino más
+cercano), que identifica los k vecinos más cercanos de la observación
+que falta y predice el valor de la variable en esa observación,
+basándose en el valor encontrado en la mayoría de los vecinos. De este
+modo, mediante la búsqueda de los 5 vecinos más cercanos, fue posible
+obtener una estimación adecuada de los valores ausentes para las
+distintas variables.</p>
 <h2 id="histograma">Histograma</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2052,8 +2078,11 @@ $out
 </div>
 <p><img src="entrega-ii-preparacion-de-los-datos_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<p>El histograma muestra que la variable dependiente estudiada sigue una distribución aproximadamente normal, con la mayoría de las observaciones concentradas entre +1 y -1 dioptrías.</p>
-<h2 id="correlaciones-scatterplots">Correlaciones &amp; Scatterplots</h2>
+<p>El histograma muestra que la variable dependiente estudiada sigue una
+distribución aproximadamente normal, con la mayoría de las observaciones
+concentradas entre +1 y -1 dioptrías.</p>
+<h2 id="correlaciones-scatterplots">Correlaciones &amp;
+Scatterplots</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>dataKNN</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>CA</span>, y<span class='op'>=</span><span class='va'>M</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
@@ -2084,10 +2113,32 @@ $out
 </div>
 <p><img src="entrega-ii-preparacion-de-los-datos_files/figure-html5/unnamed-chunk-6-4.png" width="624" /></p>
 </div>
-<p>Al analizar los gráficos de correlación, se observa que las variables independientes, CA (longitud axial del ojo) y RC (radio de curvatura del ojo) tienen una relación similar con la variable independiente, aunque parcialmente simétrica entre sí. Esto se puede comprobar además en el gráfico de comparación entre estas dos variables independientes, que muestra una relación con tendencia lineal.
-Además, al analizar cómo afecta la edad a la longitud de los ojos de las personas, se observa una tendencia al aumento de la longitud con la edad, hasta una determinada edad, y una posterior estabilización de la longitud de los ojos. Esta observación demuestra una posible relación del crecimiento del ojo con el crecimiento de las personas, que se estabiliza después de la pubertad.
-Así, el análisis de estos gráficos nos permitió inferir posibles relaciones entre las distintas variables, que posteriormente serán probadas y analizadas mediante modelos.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Al analizar los gráficos de correlación, se observa que las variables
+independientes, CA (longitud axial del ojo) y RC (radio de curvatura del
+ojo) tienen una relación similar con la variable independiente, aunque
+parcialmente simétrica entre sí. Esto se puede comprobar además en el
+gráfico de comparación entre estas dos variables independientes, que
+muestra una relación con tendencia lineal. Además, al analizar cómo
+afecta la edad a la longitud de los ojos de las personas, se observa una
+tendencia al aumento de la longitud con la edad, hasta una determinada
+edad, y una posterior estabilización de la longitud de los ojos. Esta
+observación demuestra una posible relación del crecimiento del ojo con
+el crecimiento de las personas, que se estabiliza después de la
+pubertad. Así, el análisis de estos gráficos nos permitió inferir
+posibles relaciones entre las distintas variables, que posteriormente
+serán probadas y analizadas mediante modelos.</p>
+<h2 id="base-de-datos-final">Base de datos final</h2>
+<p>Por último, se crea un archivo con los datos tratados para que puedan
+ser utilizados en los distintos modelos que se creen posteriormente.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.csv</a></span><span class='op'>(</span><span class='va'>dataKNN</span>,</span>
+<span><span class='st'>"C:\\Users\\iqp20\\OneDrive\\Documentos\\DatosPoliticos\\inesqp\\_posts\\2022-10-20-entrega-iii-modelos\\datos.csv"</span>,</span>
+<span>row.names<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

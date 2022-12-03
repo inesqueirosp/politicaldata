@@ -42,3 +42,12 @@ X: Variable independiente
 
 ε: Error residual 
 
+De este modo, para el caso que se ocupa, se recurre a los métodos de regresión, mediante el uso de un modelo de regresión lineal múltiple. Con ello se pretende construir un modelo de regresión basado en los datos recogidos de la longitud y el radio de curvatura de los ojos y evaluar si son predictores de la graduación de las personas, también determinada en este estudio. Asi, el modelo utilizado se muestra a continuación.
+
+```{r}
+model_reg_mult <- lm( ~ + , data = vdem_subset)
+class(modelo_multiple)
+summary(modelo_multiple)
+library(texreg)
+screenreg(modelo_multiple)
+```

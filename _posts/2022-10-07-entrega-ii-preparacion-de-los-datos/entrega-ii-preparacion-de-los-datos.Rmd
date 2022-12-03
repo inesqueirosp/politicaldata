@@ -126,6 +126,23 @@ summary(dataKNN)
 
 Después de constatar la existencia de missing values en los datos, se utilizó un método para sustituir estos valores ausentes. Para eso, se utilizó el método de estimación del Nearest-Neighbour (vecino más cercano), que identifica los k vecinos más cercanos de la observación que falta y predice el valor de la variable en esa observación, basándose en el valor encontrado en la mayoría de los vecinos. De este modo, mediante la búsqueda de los 5 vecinos más cercanos, fue posible obtener una estimación adecuada de los valores ausentes para las distintas variables.
 
+## Análisis de componentes principales - PCA
+
+El análisis de componentes principales, PCA, es un método de reducción de la dimensionalidad que se utiliza para reducir la dimensionalidad de grandes conjuntos de datos. Este método se basa en la transformación de un gran conjunto de variables en uno más pequeño, que siga conteniendo la mayor parte de la información del conjunto grande. El objetivo principal de este método es aumentar la simplicidad, pues con un conjunto de datos más pequeño es más fácil y rápido de explorar y visualizar. El primer paso de esta técnica es establecer las correlaciones entre las diferentes variables para entender qué variables están más correlacionadas y, así, poder identificar los componentes principales. A continuación, se presenta la matriz de correlación entre las variables numéricas. 
+
+```{r}
+##crear dataframe solo con variables numericas
+data_num <- dataKNN[,c(-1:-5,-7,-14)]
+
+##correlaciones entre las variables
+cor(data_num) 
+library(corrplot)
+matriz.cor=cor(data_num,)
+corrplot(matriz.cor)
+```
+
+Analizando los valores obtenidos en las correlaciones entre las variables y viendo la matriz de correlaciones, se observa que hay algunas variables con correlaciones altas (entre 0,6 y 0,8) que serían buenos indicadores para aplicar la técnica de PCA. Sin embargo, recordando el objetivo principal de esta técnica (reducir el número de variables), para este proyecto, dado que sólo hay 17 variables, y sólo 10 numéricas (que podrían reducirse), se consideró no proceder al análisis de componentes principales porque no es necesario reducir las variables. Por lo tanto, el estudio continuará con todas las variables iniciales.
+
 ## Histograma
 ```{r}
 #variable dependiente: M
@@ -163,15 +180,4 @@ ggplot(dataKNN, aes(x=edad, y=CA)) +
 
 Al analizar los gráficos de correlación, se observa que las variables independientes, CA (longitud axial del ojo) y RC (radio de curvatura del ojo) tienen una relación similar con la variable independiente, aunque parcialmente simétrica entre sí. Esto se puede comprobar además en el gráfico de comparación entre estas dos variables independientes, que muestra una relación con tendencia lineal.
 Además, al analizar cómo afecta la edad a la longitud de los ojos de las personas, se observa una tendencia al aumento de la longitud con la edad, hasta una determinada edad, y una posterior estabilización de la longitud de los ojos. Esta observación demuestra una posible relación del crecimiento del ojo con el crecimiento de las personas, que se estabiliza después de la pubertad. 
-Así, el análisis de estos gráficos nos permitió inferir posibles relaciones entre las distintas variables, que posteriormente serán probadas y analizadas mediante modelos. 
-
-## Base de datos final
-
-Por último, se crea un archivo con los datos tratados para que puedan ser utilizados en los distintos modelos que se creen posteriormente.
-
-```{r}
-write.csv(dataKNN,
-"C:\\Users\\iqp20\\OneDrive\\Documentos\\DatosPoliticos\\inesqp\\_posts\\2022-10-20-entrega-iii-modelos\\datos.csv",
-row.names=FALSE)
-```
-
+Así, el análisis de estos gráficos nos permitió inferir posibles relaciones entre las distintas variables, que posteriormente serán probadas y analizadas mediante modelos.

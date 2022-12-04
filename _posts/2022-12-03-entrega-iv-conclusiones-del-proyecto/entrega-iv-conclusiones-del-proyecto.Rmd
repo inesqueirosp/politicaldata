@@ -1,0 +1,22 @@
+---
+title: "Entrega IV - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes"
+description: |
+  En este post se presentan las conclusiones de este proyecto de investigación. [WIP]
+author:
+  - name: Ines Pereira
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: 2022-12-03
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+

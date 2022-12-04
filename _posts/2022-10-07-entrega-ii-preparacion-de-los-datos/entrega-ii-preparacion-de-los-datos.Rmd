@@ -181,3 +181,12 @@ ggplot(dataKNN, aes(x=edad, y=CA)) +
 Al analizar los gráficos de correlación, se observa que las variables independientes, CA (longitud axial del ojo) y RC (radio de curvatura del ojo) tienen una relación similar con la variable independiente, aunque parcialmente simétrica entre sí. Esto se puede comprobar además en el gráfico de comparación entre estas dos variables independientes, que muestra una relación con tendencia lineal.
 Además, al analizar cómo afecta la edad a la longitud de los ojos de las personas, se observa una tendencia al aumento de la longitud con la edad, hasta una determinada edad, y una posterior estabilización de la longitud de los ojos. Esta observación demuestra una posible relación del crecimiento del ojo con el crecimiento de las personas, que se estabiliza después de la pubertad. 
 Así, el análisis de estos gráficos nos permitió inferir posibles relaciones entre las distintas variables, que posteriormente serán probadas y analizadas mediante modelos.
+
+## Base de datos final
+
+Por último, se crea un archivo con los datos tratados para que puedan ser utilizados en los distintos modelos que se creen posteriormente.
+
+```{r}
+write.csv(dataKNN,
+"C:\\Users\\iqp20\\OneDrive\\Documentos\\DatosPoliticos\\inesqp\\_posts\\2022-10-20-entrega-iii-modelos\\datos.csv",
+row.names=FALSE)

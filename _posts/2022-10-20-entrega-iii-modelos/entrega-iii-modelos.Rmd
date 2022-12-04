@@ -1,7 +1,7 @@
 ---
 title: "Entrega III - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes"
 description: |
-  En este post se presenta la construcción y el análisis de modelos que permiten relacionar los datos y evaluar la hipótesis que estudia este proyecto de investigación: la graduación de una persona determinada en su componente esférica (M) cambia con la longitud del ojo (CA) y el radio de curvatura (RC). [WIP]
+  En este post se presenta la construcción y el análisis de modelos que permiten relacionar los datos y evaluar la hipótesis que estudia este proyecto de investigación: la graduación de una persona determinada en su componente esférica (M) cambia con la longitud del ojo (CA) y el radio de curvatura (RC).
 author:
   - name: Ines Pereira
     url: https://example.com/norajones
@@ -42,19 +42,70 @@ X: Variable independiente
 
 ε: Error residual 
 
-De este modo, para el caso que se ocupa, se recurre a los métodos de regresión, mediante el uso de un modelo de regresión lineal múltiple. Con ello se pretende construir un modelo de regresión basado en los datos recogidos de la longitud y el radio de curvatura de los ojos y evaluar si son predictores de la graduación de las personas, también determinada en este estudio. Asi, el modelo utilizado se muestra a continuación.
+De este modo, para el caso que se ocupa, se recurre a los métodos de regresión, mediante el uso de un modelo de regresión lineal múltiple. Con ello se pretende construir un modelo de regresión basado en los datos recogidos de la longitud axial del ojo y el radio de curvatura y evaluar si son predictores de la graduación de las personas, también determinada en este estudio. Asi, el modelo utilizado se muestra a continuación.
 
 ```{r}
-model_reg_mult <- lm( M ~ CA + RC, data = dataKNN)
-class(model_reg_mult)
-summary(model_reg_mult)
+#leer base de datos
+dataM <- read.csv("datos.csv", header = T, sep = ",", dec = ".")
+dataM <- data.frame(dataM)
+
+#modelo
+model1 <- lm( M ~ CA + RC, data = dataM)
 library(texreg)
-screenreg(model_reg_mult)
+screenreg(model1, custom.model.names = "Model 1")
 ```
 
+El análisis de los resultados muestra que el modelo construido presenta resultados significativos (p < 0,001) con un R2 igual a 0.72, es decir, alrededor del 70% de la varianza de la variable dependiente (graduación de las personas) se explica por las variables independientes (longitud axial del ojo y radio de curvatura), lo que indica que sea un buen modelo. Además, se concluye que la longitud del ojo disminuye la graduación de una persona, pues tienen una relación negativa. Esta disminución de la graduación es equivalente al aumento de la miopía, por lo tanto, este modelo permite comprobar los resultados mostrados en la literatura que dicen que cuanto mayor es la longitud axial del ojo, más severa es la miopía.
+
+A continuación, para estudiar el impacto que tiene cada una de las variables independientes en la variable dependiente se realizan dos modelos de regresión lineal simple. 
+
 ```{r}
-model_reg_simp <- lm( CA ~ edad, data = dataKNN)
-class(model_reg_simp)
-summary(model_reg_simp)
-screenreg(model_reg_simp)
+model2 <- lm( M ~ CA, data = dataM)
+screenreg(model2, custom.model.names = "Model 2")
+
+model3 <- lm( M ~ RC, data = dataM)
+screenreg(model3, custom.model.names = "Model 3")
 ```
+Con estas dos regresiones, se verifica que los modelos, aunque significativos, no son tan buenos, pues el  R2 disminuye. Además, el modelo con el radio de curvatura tiene un  R2 muy bajo, lo que indica que el radio de curvatura por sí solo no es un buen predictor de la graduación o miopía de una persona. De este modo, las variables juntas construyen un mejor modelo.
+
+Seguidamente, para evaluar otra hipótesis presentada en la literatura, se construye un modelo que tiene como variable independiente el error de refracción, es decir, el ratio entre la longitud axial y el radio de curvatura.
+
+```{r}
+model4 <- lm( M ~ CA_RC, data = dataM)
+screenreg(model4, custom.model.names = "Model 4")
+```
+Este es también un modelo significativo y con un buen R2, siendo así también un buen predictor de la miopía, como se planteó.
+
+A continuación, se presentan modelos que pretenden estudiar el impacto de factores individuales e intrínsecos a cada persona, como la edad y el sexo, en los distintos componentes ópticos y en la graduación de cada persona y, en consecuencia, en la progresión de la miopía.
+
+```{r}
+model5 <- lm( CA ~ grupo_etario, data = dataM)
+screenreg(model5, custom.model.names = "Model 5")
+
+model6 <- lm( RC ~ grupo_etario, data = dataM)
+screenreg(model6, custom.model.names = "Model 6")
+
+model7 <- lm( M ~ grupo_etario, data = dataM)
+screenreg(model7, custom.model.names = "Model 7")
+
+model8 <- lm( CA ~ sexo, data = dataM)
+screenreg(model8, custom.model.names = "Model 8")
+
+model9 <- lm( RC ~ sexo, data = dataM)
+screenreg(model9, custom.model.names = "Model 9")
+
+model10 <- lm( M ~ sexo, data = dataM)
+screenreg(model10, custom.model.names = "Model 10")
+```
+En todos estos modelos se evidencia un R2 muy bajo (casi nulo), coeficientes de regresión muy bajos y algunos no significativos. Con estos resultados, se concluye que estos factores tienen un impacto muy bajo, tanto en la longitud axial, como en el radio de curvatura e, incluso, en la graduación de cada persona. Así, este estudio parece obtener resultados diferentes a los presentados en la literatura y disminuir la importancia de estas variables para el estudio.
+
+Para concluir este análisis, se retoma el modelo de regresión múltiple inicial, que pretende ilustrar la hipótesis de este estudio, y se controla por las variables antes mencionadas, edad y sexo. 
+
+
+```{r}
+model11 <- lm( M ~ CA + RC + edad + sexo, data = dataM)
+screenreg(model11, custom.model.names = "Model 11")
+```
+
+Así, se verifica que controlando por las variables el R2 tiene un aumento residual de 0.72 para 0.73. Los resultados obtenidos son muy similares con el primer modelo y las nuevas variables de la regresión tienen un impacto muy bajo, siendo que una de ellas no es significativa. De este modo, se concluye que estas variables no tienen impacto en el resultado obtenido.
+

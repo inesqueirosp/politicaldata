@@ -51,3 +51,10 @@ summary(model_reg_mult)
 library(texreg)
 screenreg(model_reg_mult)
 ```
+
+```{r}
+model_reg_simp <- lm( CA ~ edad, data = dataKNN)
+class(model_reg_simp)
+summary(model_reg_simp)
+screenreg(model_reg_simp)
+```

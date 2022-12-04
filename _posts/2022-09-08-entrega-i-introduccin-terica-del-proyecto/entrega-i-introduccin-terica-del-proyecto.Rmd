@@ -1,7 +1,7 @@
 ---
 title: "Entrega I - Impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes"
 description: |
-  En este post se presenta una introducción teórica del proyecto. Esta descripción presenta una introducción al tema y al problema a investigar, así como las variables que se estudiarán a lo largo del proyecto.
+  En este post se presenta una introducción teórica y la revisión de la literatura del proyecto. Esta descripción presenta una introducción al tema y al problema a investigar, así como las variables que se estudiarán a lo largo del proyecto.
 author:
   - name: Ines Pereira
     url: https://example.com/norajones
@@ -20,11 +20,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Introducción
 
-La presencia de la miopía en la población ha aumentado significativamente en las últimas décadas y se manifiesta de forma global. Las recientes predicciones de que la mitad de la población mundial será miope en 2050 resaltan la gran preocupación por los problemas asociados a este aumento de la miopía. [1] Los valores elevados de miopía pueden provocar el desarrollo de complicaciones oculares graves, entre las que destacan el desprendimiento de retina, el glaucoma y la catarata, habiendo indicios de ceguera en el futuro. [2], [3]
+La presencia de la miopía en la población ha aumentado significativamente en las últimas décadas y se manifiesta de forma global. Las recientes predicciones de que la mitad de la población mundial será miope en 2050 resaltan la gran preocupación por los problemas asociados a este aumento de la miopía.[1] Los valores elevados de miopía pueden provocar el desarrollo de complicaciones oculares graves, entre las que destacan el desprendimiento de retina, el glaucoma y la catarata, habiendo indicios de ceguera en el futuro.[2],[3]
 
-## Hipótesis y variables 
+## Revisión de la literatura
 
-La progresión de la miopía se considera cuando un ojo miope corregido presenta variaciones en sus componentes ópticos oculares y enfoca los rayos de luz paralelos ante la retina. [4] Así, para estudiar el impacto de los cambios en los componentes ópticos oculares, como la longitud axial del ojo (CA) y el radio de curvatura (RC), en la refracción de los jóvenes, se propone como hipótesis que <u>la graduación de una persona determinada en su componente esférica (M) cambia con la longitud axial del ojo (CA) y el radio de curvatura (RC)</u>.
+La progresión de la miopía se considera cuando un ojo miope corregido presenta variaciones en sus componentes ópticos oculares y enfoca los rayos de luz paralelos ante la retina.[4] Dentro de estos componentes ópticos oculares se encuentran la longitud axial del ojo y el radio de curvatura, que serán estudiados en este proyecto. La importancia de estos componentes y su relación con la miopía también se evidencia en la literatura. Según Meng, la longitud axial del ojo es el principal determinante de la miopía y evidencia estudios que muestran una relación negativa entre ambas, es decir, cuanto mayor es la longitud axial del ojo, más severa es la miopía.[5] También se sugiere como un mejor indicador de la miopía la relación entre la longitud axial y el radio de curvatura.[6] Sin embargo, en un estudio realizado con 583 estudiantes universitarios, se comprobó que la longitud axial estaba más relacionada con el error de refracción que el radio de curvatura, sobre todo en personas con un nivel moderado de miopía.[7] 
+
+Además de los componentes ópticos oculares, la literatura también muestra cómo otros factores intrínsecos de cada persona pueden influir en la miopía. En un estudio de 469 niños, en el que se evaluó la progresión de la miopía a lo largo de 3 años, se comprobó que los niños que tenían menos edad al inicio del estudio eran los que presentaban una progresión miope más rápida y una mayor elongación axial del ojo.[8] De este modo, se demuestra el importante papel de la edad en la progresión de la miopía y cómo debe controlarse a edades más tempranas. Además, factores individuales como la edad y el sexo también están relacionados con los componentes ópticos oculares. Según un análisis de varios grupos de edad en países europeos, se demostró que la longitud axial aumentaba hasta los 15 años de edad y luego seguía aumentando hasta la edad adulta, en el percentil 50 superior. En cuanto al radio de curvatura, este estudio demostró que los valores de este componente eran similares entre los grupos de edad, con sólo un radio de curvatura ligeramente menor en la edad adulta.[9]
+
+## Hipótesis y variables
+
+Así, para estudiar el impacto de los cambios en los componentes ópticos oculares, como la longitud axial del ojo (CA) y el radio de curvatura (RC), en la refracción de los jóvenes, se propone como hipótesis que <u>la graduación de una persona determinada en su componente esférica (M) cambia con la longitud axial del ojo (CA) y el radio de curvatura (RC)</u>.
 
 Para evaluar esta hipótesis, se recurre a una base de datos formada por las mediciones ópticas realizadas en una escuela, en Portugal. En esta base de datos se encuentran las siguientes variables:
 
@@ -64,7 +70,7 @@ Para evaluar esta hipótesis, se recurre a una base de datos formada por las med
   + variable cuantitativa continua\
     - <3: hipermetrope, 3: emetrope, >3:miope\
 
-En esto proyecto y con el objetivo de evaluar el impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes,  se considerarán como <u>variables independientes la longitud axial del ojo (CA) y el radio de curvatura (RC)</u>. La <u>variable dependiente</u> en estudio es <u>la graduación de la persona en su componente esférica (M)</u>. Esta variable no se mide directamente, sino que se obtiene convirtiendo en equivalente esférico, a través de sus componentes del vector de refracción, los valores obtenidos en la refracción del objetivo monocular. Estos valores son la esfera (Esf), el cilindro (Cil) y el eje (α) de la refracción convencional y se incluyen en las siguientes ecuaciones [5]:\
+En esto proyecto y con el objetivo de evaluar el impacto de los cambios de los componentes ópticos oculares en la refracción de los jóvenes,  se considerarán como <u>variables independientes la longitud axial del ojo (CA) y el radio de curvatura (RC)</u>. La <u>variable dependiente</u> en estudio es <u>la graduación de la persona en su componente esférica (M)</u>. Esta variable no se mide directamente, sino que se obtiene convirtiendo en equivalente esférico, a través de sus componentes del vector de refracción, los valores obtenidos en la refracción del objetivo monocular. Estos valores son la esfera (Esf), el cilindro (Cil) y el eje (α) de la refracción convencional y se incluyen en las siguientes ecuaciones[10]:\
 
    M = Esf + Cil/2\
    J0 = -Cil x cos (2 α)/2\
@@ -81,8 +87,13 @@ Finalmente, con el estudio de estas variables se pretende evaluar los cambios en
 * [1]  Clin Exp Opto. 2015 Nov;98(6):491-3. doi: 10.1111/cxo.12339. Nearly 1 billion myopes at risk of myopia-related sight-threatening conditions by 2050 - time to act now Brien A Holden, Monica Jong, Stephen Davis, David Wilson, Tim Fricke, Serge Resnikoff
 * [2] S. Hasebe, J. Jun, and S. R. Varnas, “Myopia control with positively aspherized progressive addition lenses: A 2-year, multicenter, randomized, controlled trial,” Investig. Ophthalmol. Vis. Sci., 2014, doi: 10.1167/iovs.12-11462.
 * [3]  B. A. Holden et al., “Global Prevalence of Myopia and High Myopia and Temporal Trends from 2000 through 2050,” Ophthalmology, vol. 123, no. 5. pp. 1036–1042, 2016, doi: 10.1016/j.ophtha.2016.01.006.
-* [[4] Tese de doutoramento António Queirós Pereira. Universidade do Minho. 2011.](http://repositorium.sdum.uminho.pt/handle/1822/13950)
-* [5] L. N. Thibos, W. Wheeler, and D. Horner, “Power vectors: an application of Fourier analysis to the description and statistical analysis of refractive error,” Optom Vis.Sci, vol. 74, no. 1040-5488 (Print), pp. 367–375, Jun. 1997.
+* [4] Pereira, A. M. M. D. Q. (2011). Impacto da ortoqueratologia e da cirurgia refractiva LASIK na topografia da córnea, na refracção central e periférica e na qualidade visual do olho.
+* [5] Meng, W., Butterworth, J., Malecaze, F., & Calvas, P. (2011). Axial length of myopia: a review of current research. Ophthalmologica, 225(3), 127-134.
+* [6] Osuobeni, E. P. (1999). Ocular components values and their intercorrelations in Saudi Arabians. Ophthalmic and Physiological Optics, 19(6), 489-497.
+* [7] Blanco, F. G., FERNANDEZ, J. C. S., & SANZ, M. A. M. (2008). Axial length, corneal radius, and age of myopia onset. Optometry and vision science, 85(2), 89-96.
+* [8] Hyman, L., Gwiazda, J., Hussein, M., Norton, T. T., Wang, Y., Marsh-Tootle, W., ... & COMET Study Group. (2005). Relationship of age, sex, and ethnicity with myopia progression and axial elongation in the correction of myopia evaluation trial. Archives of ophthalmology, 123(7), 977-987.
+* [9] Tideman, J. W. L., Polling, J. R., Vingerling, J. R., Jaddoe, V. W., Williams, C., Guggenheim, J. A., & Klaver, C. C. (2018). Axial length growth and the risk of developing myopia in European children. Acta ophthalmologica, 96(3), 301-309.
+* [10] L. N. Thibos, W. Wheeler, and D. Horner, “Power vectors: an application of Fourier analysis to the description and statistical analysis of refractive error,” Optom Vis.Sci, vol. 74, no. 1040-5488 (Print), pp. 367–375, Jun. 1997.
 
 
 

@@ -43,7 +43,7 @@ boxplot(data$edad, col="lightblue", main="Edad Boxplot",
         ylab="Edad")
 boxplot.stats(data$edad)
 
-  ##12 outliers
+  ##9 outliers
 
 ##Variable M
 boxplot(data$M, col="lightgreen", main="Graduación Componente Esférica Boxplot",
@@ -64,7 +64,7 @@ boxplot(data$J45, col="violet", main="Componente Vectorial Oblicuo Boxplot",
         ylab="J45")
 boxplot.stats(data$J45)
 
-  ##66 outliers
+  ##69 outliers
 
 ##Variable esf
 boxplot(data$esf, col="orange", main="Esfera Boxplot",
@@ -99,14 +99,14 @@ boxplot(data$RC, col="#B7F6DA", main="Radio de Curvatura Boxplot",
         ylab="RC")
 boxplot.stats(data$RC)
 
-  ##15 outliers
+  ##16 outliers
 
 ##Variable CA_RC
 boxplot(data$CA_RC, col="#F6B7B7", main="Predictor Defecto Refractivo Boxplot",
         ylab="CA_RC")
 boxplot.stats(data$CA_RC)
 
-  ##58 outliers
+  ##59 outliers
 ```
 
 Al analizar los boxplots y la presencia de outliers, se comprobó que 9 variables contenían outliers, y la variable en la que la presencia de outliers era más considerable, era sólo el 10%. Después de la análisis, se decidió no eliminar ninguno de los outliers. Para estos datos analizados, se sabe que es probable que existan todos estos valores, por lo que los outliers no reflejan valores imposibles. Además, según la medición realizada, también se descartan los errores de medición. Así, los valores extremos presentes en estos datos, existen porque reflejan la graduación de una persona que se supone está relacionada con la longitud del ojo de una persona, por ejemplo, una mayor longitud de un ojo, dará una mayor graduación. Como las personas son diferentes y existen distintas longitudes de ojos, es importante analizar incluso las más extremas para conocer la relación entre estas variables. Por lo tanto, no se eliminaron los outliers.

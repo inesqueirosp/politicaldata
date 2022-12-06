@@ -55,9 +55,9 @@ library(texreg)
 screenreg(model1, custom.model.names = "Model 1")
 ```
 
-El análisis de los resultados muestra que el modelo construido presenta resultados significativos (p < 0,001) con un R^2^ igual a 0.72, es decir, alrededor del 70% de la varianza de la variable dependiente (graduación de las personas) se explica por las variables independientes (longitud axial del ojo y radio de curvatura), lo que indica que sea un buen modelo. Además, se concluye que la longitud del ojo disminuye la graduación de una persona, pues tienen una relación negativa. Esta disminución de la graduación es equivalente al aumento de la miopía, por lo tanto, este modelo permite comprobar los resultados mostrados en la literatura que dicen que cuanto mayor es la longitud axial del ojo, más severa es la miopía.
+El análisis de los resultados muestra que el modelo construido presenta resultados significativos (p < 0,001) con un R^2^ igual a 0.72, es decir, alrededor del 70% de la varianza de la variable dependiente (graduación de las personas) se explica por las variables independientes (longitud axial del ojo y radio de curvatura), lo que indica que sea un buen modelo. Además, se concluye que la longitud del ojo disminuye la graduación de una persona, pues tienen una relación negativa. Esta disminución de la graduación es equivalente al aumento de la miopía, por lo tanto, este modelo permite comprobar los resultados mostrados en la literatura, que dicen que cuanto mayor es la longitud axial del ojo, más severa es la miopía.
 
-A continuación, para estudiar el impacto que tiene cada una de las variables independientes en la variable dependiente se realizan dos modelos de regresión lineal simple. 
+A continuación, para estudiar el impacto que tiene cada una de las variables independientes en la variable dependiente, se realizan dos modelos de regresión lineal simple. 
 
 ```{r}
 model2 <- lm( M ~ CA, data = dataM)
